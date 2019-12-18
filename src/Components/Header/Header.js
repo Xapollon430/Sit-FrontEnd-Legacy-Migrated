@@ -35,6 +35,8 @@ function Header() {
 
 		if (innerWidth > 700) {
 			setNav(true);
+		} else {
+			setNav(false);
 		}
 		return () => {
 			window.removeEventListener("resize", resizer);
