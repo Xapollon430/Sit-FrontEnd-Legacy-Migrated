@@ -23,7 +23,7 @@ function Header() {
 	let [nav, setNav] = useState(false);
 	let [innerWidth, setInnerWidth] = useState(window.innerWidth);
 	let navButtons;
-
+	console.log(nav, innerWidth);
 	const openNav = () => {
 		setNav(!nav);
 	};
