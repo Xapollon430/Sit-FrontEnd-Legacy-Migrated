@@ -22,7 +22,6 @@ function Header() {
 	const classes = useStyles();
 	let [nav, setNav] = useState(false);
 	let [innerWidth, setInnerWidth] = useState(window.innerWidth);
-	let navButtons;
 	console.log(nav, innerWidth);
 	const openNav = () => {
 		setNav(!nav);
@@ -34,31 +33,18 @@ function Header() {
 		};
 		let resizer = window.addEventListener("resize", resizeHandler);
 
+		if (innerWidth > 700) {
+			setNav(true);
+		}
 		return () => {
 			window.removeEventListener("resize", resizer);
 		};
 	}, [innerWidth]);
 
-	if (innerWidth > 700) {
-		navButtons = (
-			<Nav>
-				<Button size="small" variant="outlined" className={classes.button}>
-					Find A Sitter
-				</Button>
-				<Button variant="outlined" className={classes.button}>
-					Be A Sitter
-				</Button>
-				<EmptyDiv />
-				<Button variant="outlined" className={classes.button}>
-					Log In
-				</Button>
-				<Button variant="outlined" className={classes.button}>
-					Sign Up
-				</Button>
-			</Nav>
-		);
-	} else {
-		navButtons = (
+	return (
+		<Navbar>
+			<Brand>Sit!</Brand>
+			<Menu onClick={openNav} className="fas fa-bars fa-3x"></Menu>
 			<Nav className={nav === true ? "open" : "close"}>
 				<Button size="small" variant="outlined" className={classes.button}>
 					Find A Sitter
@@ -74,14 +60,6 @@ function Header() {
 					Sign Up
 				</Button>
 			</Nav>
-		);
-	}
-
-	return (
-		<Navbar>
-			<Brand>Sit!</Brand>
-			<Menu onClick={openNav} className="fas fa-bars fa-3x"></Menu>
-			{navButtons}
 		</Navbar>
 	);
 }
