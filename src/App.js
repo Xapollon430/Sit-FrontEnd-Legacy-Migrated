@@ -5,12 +5,12 @@ import BackgroundImage from "./AppCss";
 
 function App() {
 	return (
-		<div>
+		<React.Fragment>
 			<BackgroundImage>
 				<Header />
 				<Jumbotron />
 			</BackgroundImage>
-		</div>
+		</React.Fragment>
 	);
 }
 

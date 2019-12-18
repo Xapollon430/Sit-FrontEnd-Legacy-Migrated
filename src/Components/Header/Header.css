@@ -1,0 +1,7 @@
+.open {
+	grid-gap: 10px;
+}
+
+.close {
+	display: none;
+}

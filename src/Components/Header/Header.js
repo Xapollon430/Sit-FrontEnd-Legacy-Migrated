@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Navbar, Brand } from "./HeaderCss";
+import { Navbar, Brand, Menu, Nav, EmptyDiv } from "./HeaderCss";
 import Button from "@material-ui/core/Button";
+import "./Header.css";
 
 const useStyles = makeStyles({
 	button: {
@@ -12,29 +13,78 @@ const useStyles = makeStyles({
 		fontWeight: "700",
 		fontSize: "0.8rem",
 		color: "white",
-		height: "45px"
+		height: "45px",
+		width: "100%"
 	}
 });
 
 function Header() {
 	const classes = useStyles();
+	let [nav, setNav] = useState(false);
+	let [innerWidth, setInnerWidth] = useState(window.innerWidth);
+	let navButtons;
+
+	const openNav = () => {
+		setNav(!nav);
+	};
+
+	useEffect(() => {
+		const resizeHandler = () => {
+			setInnerWidth(window.innerWidth);
+		};
+		let resizer = window.addEventListener("resize", resizeHandler);
+
+		return () => {
+			window.removeEventListener("resize", resizer);
+		};
+	}, [innerWidth]);
+
+	console.log(nav);
+
+	if (innerWidth > 700) {
+		console.log(123);
+		navButtons = (
+			<Nav>
+				<Button size="small" variant="outlined" className={classes.button}>
+					Find A Sitter
+				</Button>
+				<Button variant="outlined" className={classes.button}>
+					Be A Sitter
+				</Button>
+				<EmptyDiv />
+				<Button variant="outlined" className={classes.button}>
+					Log In
+				</Button>
+				<Button variant="outlined" className={classes.button}>
+					Sign Up
+				</Button>
+			</Nav>
+		);
+	} else {
+		navButtons = (
+			<Nav className={nav === true ? "open" : "close"}>
+				<Button size="small" variant="outlined" className={classes.button}>
+					Find A Sitter
+				</Button>
+				<Button variant="outlined" className={classes.button}>
+					Be A Sitter
+				</Button>
+				<EmptyDiv />
+				<Button variant="outlined" className={classes.button}>
+					Log In
+				</Button>
+				<Button variant="outlined" className={classes.button}>
+					Sign Up
+				</Button>
+			</Nav>
+		);
+	}
 
 	return (
 		<Navbar>
 			<Brand>Sit!</Brand>
-			<Button size="small" variant="outlined" className={classes.button}>
-				Post A Job
-			</Button>
-			<Button variant="outlined" className={classes.button}>
-				Find A Job
-			</Button>
-			<div />
-			<Button variant="outlined" className={classes.button}>
-				Log In
-			</Button>
-			<Button variant="outlined" className={classes.button}>
-				Sign Up
-			</Button>
+			<Menu onClick={openNav} className="fas fa-bars fa-3x"></Menu>
+			{navButtons}
 		</Navbar>
 	);
 }

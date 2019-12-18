@@ -9,11 +9,17 @@ export const Title = styled.h1`
 	font-size: 3rem;
 	color: white;
 	font-family: "Quicksand", sans-serif;
+	@media (max-width: 700px) {
+		font-size: 2rem;
+	}
 `;
 
 export const Paragraph = styled.p`
 	font-size: 1.4rem;
 	color: white;
+	@media (max-width: 700px) {
+		font-size: 1.3rem;
+	}
 `;
 
 export const Button = styled.button`
