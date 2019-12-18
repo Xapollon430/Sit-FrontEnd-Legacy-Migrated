@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Section = styled.section`
 	width: 60%;
 	margin: 80px auto 0px auto;
+	@media (max-width: 700px) {
+		width: 80%;
+	}
 `;
 
 export const Title = styled.h1`

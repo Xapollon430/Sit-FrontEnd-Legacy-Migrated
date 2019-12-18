@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Sit-FrontEnd/static/css/main.e50923a2.chunk.css",
+    "main.js": "/Sit-FrontEnd/static/js/main.ef297899.chunk.js",
+    "main.js.map": "/Sit-FrontEnd/static/js/main.ef297899.chunk.js.map",
+    "runtime-main.js": "/Sit-FrontEnd/static/js/runtime-main.bca31cba.js",
+    "runtime-main.js.map": "/Sit-FrontEnd/static/js/runtime-main.bca31cba.js.map",
+    "static/js/2.07ccf2b4.chunk.js": "/Sit-FrontEnd/static/js/2.07ccf2b4.chunk.js",
+    "static/js/2.07ccf2b4.chunk.js.map": "/Sit-FrontEnd/static/js/2.07ccf2b4.chunk.js.map",
+    "index.html": "/Sit-FrontEnd/index.html",
+    "precache-manifest.fa8de3552570f33e9a461999312f5c3e.js": "/Sit-FrontEnd/precache-manifest.fa8de3552570f33e9a461999312f5c3e.js",
+    "service-worker.js": "/Sit-FrontEnd/service-worker.js",
+    "static/css/main.e50923a2.chunk.css.map": "/Sit-FrontEnd/static/css/main.e50923a2.chunk.css.map",
+    "static/js/2.07ccf2b4.chunk.js.LICENSE": "/Sit-FrontEnd/static/js/2.07ccf2b4.chunk.js.LICENSE",
+    "static/media/background.jpg": "/Sit-FrontEnd/static/media/background.c76d02f5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bca31cba.js",
+    "static/js/2.07ccf2b4.chunk.js",
+    "static/css/main.e50923a2.chunk.css",
+    "static/js/main.ef297899.chunk.js"
+  ]
+}

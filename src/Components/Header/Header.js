@@ -39,10 +39,7 @@ function Header() {
 		};
 	}, [innerWidth]);
 
-	console.log(nav);
-
 	if (innerWidth > 700) {
-		console.log(123);
 		navButtons = (
 			<Nav>
 				<Button size="small" variant="outlined" className={classes.button}>

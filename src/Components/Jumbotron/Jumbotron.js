@@ -13,7 +13,7 @@ function Jumbotron() {
 			</Paragraph>
 			<Button>Find a Sitter!</Button>
 			<Footer>
-				Are you looking for a pet sitting job? <Link href="google">Apply Now.</Link>
+				Are you looking for a pet sitting job? <Link href="gugle">Apply Now.</Link>
 			</Footer>
 		</Section>
 	);
