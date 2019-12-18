@@ -1,5 +1,5 @@
 .open {
-	grid-gap: 10px;
+	display: grid;
 }
 
 .close {
