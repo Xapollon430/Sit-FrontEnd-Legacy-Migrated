@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bgImage from "./images/background.jpg";
+import bgImage from "../../images/background.jpg";
 
 let BackgroundImage = styled.div`
 	background-image: url(${bgImage});

@@ -1,17 +1,12 @@
 import React from "react";
-import Header from "./Components/Header/Header";
-import Jumbotron from "./Components/Jumbotron/Jumbotron";
-import BackgroundImage from "./AppCss";
+import Landing from "./Components/Landing/Landing";
 
-function App() {
+const App = () => {
 	return (
 		<React.Fragment>
-			<BackgroundImage>
-				<Header />
-				<Jumbotron />
-			</BackgroundImage>
+			<Landing />
 		</React.Fragment>
 	);
-}
+};
 
 export default App;
