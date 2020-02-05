@@ -21,6 +21,7 @@ function Header() {
 	const classes = useStyles();
 	let [isNavGrid, setIsNavGrid] = useState(false);
 	let [innerWidth, setInnerWidth] = useState(window.innerWidth);
+	console.log(12);
 
 	const openNav = () => {
 		setIsNavGrid(!isNavGrid);
