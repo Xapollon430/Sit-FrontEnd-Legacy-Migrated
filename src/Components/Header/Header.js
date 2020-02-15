@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Navbar, Brand, Menu, Nav, EmptyDiv } from "./HeaderCss";
 import Button from "@material-ui/core/Button";
 import { useResponsive } from "../../CustomHooks/Hooks";
+import { useDispatch } from "react-redux";
+import { changeIsRegisterModalOpen, changeIsSignUpOpen, changeIsLogInOpen } from "../../Redux/actions";
 
 const useStyles = makeStyles({
 	button: {
@@ -20,7 +22,18 @@ const useStyles = makeStyles({
 
 function Header() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 	const [showHamburger, isHamburgerOpen] = useResponsive();
+
+	const showLogInModal = () => {
+		dispatch(changeIsRegisterModalOpen(true));
+		dispatch(changeIsLogInOpen(true));
+	};
+
+	const showSignUpModal = () => {
+		dispatch(changeIsRegisterModalOpen(true));
+		dispatch(changeIsSignUpOpen(true));
+	};
 
 	return (
 		<Navbar>
@@ -34,10 +47,10 @@ function Header() {
 					Be A Sitter
 				</Button>
 				<EmptyDiv />
-				<Button variant="outlined" className={classes.button}>
+				<Button variant="outlined" className={classes.button} onClick={showLogInModal}>
 					Log In
 				</Button>
-				<Button variant="outlined" className={classes.button}>
+				<Button variant="outlined" className={classes.button} onClick={showSignUpModal}>
 					Sign Up
 				</Button>
 			</Nav>
