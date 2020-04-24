@@ -17,7 +17,7 @@ export const Navbar = styled.div`
 export const Nav = styled.div`
 	grid-area: nav;
 	width: 100%;
-	display: ${props => (props.close === false ? "none" : "grid")};
+	display: ${(props) => (props.close === false ? "none" : "grid")};
 	grid-gap: 10px;
 	grid-template-columns: 120px 120px 1fr 120px 120px;
 	@media (max-width: 700px) {
@@ -53,4 +53,16 @@ export const EmptyDiv = styled.div`
 	@media (max-width: 700px) {
 		display: none;
 	}
+`;
+
+export const Button = styled.button`
+	color: white;
+	background-color: Transparent;
+	background-repeat: no-repeat;
+	border: white 2px solid;
+	cursor: pointer;
+	outline: none;
+	font-size: 1.1rem;
+	height: 45px;
+	border-radius: 5px;
 `;
