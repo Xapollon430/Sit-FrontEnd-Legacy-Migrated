@@ -12,7 +12,7 @@ const Login = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(loginInfo), // body data type must match "Content-Type" header
+            body: JSON.stringify(loginInfo),
         });
     };
 

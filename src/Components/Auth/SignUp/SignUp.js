@@ -4,16 +4,16 @@ import "../AuthModal.css";
 const SignUp = () => {
     const [signUpInfo, setSignUpInfo] = useState(null);
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/signUp", {
+        let response = await fetch("http://localhost:5000/sign-up", {
             method: "POST",
-            mode: "cors",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(signUpInfo),
         });
+        console.log(response);
     };
 
     const submitOnChange = (e) => {
