@@ -5,27 +5,36 @@ import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
-import { changeIsLogInOpen, changeIsSignUpOpen, changeIsRegisterModalOpen } from "../../Redux/actions";
+import {
+    changeIsLogInOpen,
+    changeIsSignUpOpen,
+    changeIsRegisterModalOpen,
+} from "../../Redux/actions";
 
-function Landing() {
-	let state = useSelector((state) => state);
-	let dispatch = useDispatch();
+function Landing(props) {
+    let state = useSelector((state) => state);
+    let dispatch = useDispatch();
+    console.log(props);
 
-	const closeRegisterModal = () => {
-		dispatch(changeIsRegisterModalOpen(false));
-		dispatch(changeIsLogInOpen(false));
-		dispatch(changeIsSignUpOpen(false));
-	};
+    const closeRegisterModal = () => {
+        dispatch(changeIsRegisterModalOpen(false));
+        dispatch(changeIsLogInOpen(false));
+        dispatch(changeIsSignUpOpen(false));
+    };
 
-	return (
-		<BackgroundImage>
-			<Header />
-			<Jumbotron />
-			<Modal showModal={state.isRegisterModalOpen} onCancel={closeRegisterModal}>
-				<AuthModal />
-			</Modal>
-		</BackgroundImage>
-	);
+    return (
+        <BackgroundImage>
+            <Header />
+
+            <Jumbotron />
+            <Modal
+                showModal={state.isRegisterModalOpen}
+                onCancel={closeRegisterModal}
+            >
+                <AuthModal />
+            </Modal>
+        </BackgroundImage>
+    );
 }
 
 export default Landing;
