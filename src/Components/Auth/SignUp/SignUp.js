@@ -8,8 +8,6 @@ const SignUp = () => {
         email: null,
     });
 
-    console.log(signUpInfo);
-
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(e);
