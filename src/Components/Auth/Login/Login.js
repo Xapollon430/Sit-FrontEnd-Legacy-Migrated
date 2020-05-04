@@ -1,26 +1,7 @@
 import React, { useState } from "react";
 import "../AuthModal.css";
 
-const Login = () => {
-    const [loginInfo, setUserInfo] = useState({
-        username: null,
-        password: null,
-    });
-
-    console.log(loginInfo);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log(e);
-    };
-
-    const submitOnChange = (e) => {
-        setUserInfo({
-            ...loginInfo,
-            [e.target.getAttribute("name")]: e.target.value,
-        });
-    };
-
+const Login = ({ submitOnChange, submitHandler }) => {
     return (
         <div id="login-tab-content">
             <form className="login-form" onSubmit={submitHandler}>
@@ -29,7 +10,7 @@ const Login = () => {
                     className="input"
                     name="username"
                     placeholder="Email or Username"
-                    onChange={submitOnChange}
+                    onSubmit={(e) => submitHandler(e, "login")}
                 />
                 <input
                     type="password"
