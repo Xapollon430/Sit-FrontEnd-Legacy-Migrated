@@ -7,7 +7,7 @@ const SignUp = ({ submitOnChange, submitHandler }) => {
             <div id="signup-tab-content" className="active">
                 <form
                     className="signup-form"
-                    onSubmit={(e) => submitHandler(e, "login")}
+                    onSubmit={(e) => submitHandler(e, "signup")}
                 >
                     <input
                         type="email"
