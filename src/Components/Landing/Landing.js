@@ -14,12 +14,11 @@ import {
 function Landing(props) {
     let state = useSelector((state) => state);
     let dispatch = useDispatch();
-    console.log(props);
 
     const closeRegisterModal = () => {
         dispatch(changeIsRegisterModalOpen(false));
-        dispatch(changeIsLogInOpen(false));
-        dispatch(changeIsSignUpOpen(false));
+        // dispatch(changeIsLogInOpen(false));
+        // dispatch(changeIsSignUpOpen(false));
     };
 
     return (

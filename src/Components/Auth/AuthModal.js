@@ -6,22 +6,22 @@ import AuthTabs from "./AuthTabs/AuthTabs";
 import { useSelector, useDispatch } from "react-redux";
 import { changeIsLogInOpen, changeIsSignUpOpen } from "../../Redux/actions";
 
-const AuthModal = (props) => {
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+const AuthModal = () => {
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
 
-  const changeTab = (event) => {
-    event.target.getAttribute("name") === "login"
-      ? dispatch(changeIsLogInOpen(true))
-      : dispatch(changeIsSignUpOpen(true));
-  };
+    const changeTab = (event) => {
+        event.target.getAttribute("name") === "login"
+            ? dispatch(changeIsLogInOpen(true))
+            : dispatch(changeIsSignUpOpen(true));
+    };
 
-  return (
-    <div className="form-wrap">
-      <AuthTabs changeTab={changeTab} {...state} />
-      {state.isLogInOpen ? <Login /> : <SignUp />}
-    </div>
-  );
+    return (
+        <div className="form-wrap">
+            <AuthTabs changeTab={changeTab} {...state} />
+            {state.isLogInOpen ? <Login /> : <SignUp />}
+        </div>
+    );
 };
 
 export default AuthModal;

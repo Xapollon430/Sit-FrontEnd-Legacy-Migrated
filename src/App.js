@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 const App = () => {
     return (
         <Fragment>
-            <Route path="/" exact component={Landing} />
+            <Route path="/" exact render={() => <Landing />} />
         </Fragment>
     );
 };

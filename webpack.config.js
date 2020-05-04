@@ -31,6 +31,7 @@ module.exports = {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
         open: true,
+        port: 3000,
     },
     plugins: [new HtmlWebpackPlugin({ template: "public/index.html" })],
 };
