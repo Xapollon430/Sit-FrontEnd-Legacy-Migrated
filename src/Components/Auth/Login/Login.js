@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import "../AuthModal.css";
 
 const Login = () => {
-    const [loginInfo, setUserInfo] = useState({
+    const [loginInfo, setLoginInfo] = useState({
         username: null,
         password: null,
     });
-
-    console.log(loginInfo);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -15,7 +13,7 @@ const Login = () => {
     };
 
     const submitOnChange = (e) => {
-        setUserInfo({
+        setLoginInfo({
             ...loginInfo,
             [e.target.getAttribute("name")]: e.target.value,
         });
