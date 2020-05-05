@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import "../AuthModal.css";
 
-const SignUp = ({ submitOnChange, submitHandler }) => {
+const SignUp = () => {
+    const [signUpInfo, setSignUpInfo] = useState(null);
+
+    const submitHandler = (e, type) => {
+        e.preventDefault();
+    };
+
+    const submitOnChange = (e) => {
+        setSignUpInfo({
+            ...signUpInfo,
+            [e.target.getAttribute("name")]: e.target.value,
+        });
+    };
+
     return (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
-                <form
-                    className="signup-form"
-                    onSubmit={(e) => submitHandler(e, "signup")}
-                >
+                <form className="signup-form" onSubmit={submitHandler}>
                     <input
                         type="email"
                         className="input"

@@ -16,24 +16,6 @@ const AuthModal = () => {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    const [userAuthInfo, setUserAuthInfo] = useState(initialState);
-
-    const submitHandler = (e, type) => {
-        e.preventDefault();
-        if (type == "login") {
-            // fethc(/logn)
-        } else {
-            // fethc(/soignup)
-        }
-    };
-
-    const submitOnChange = (e) => {
-        setUserAuthInfo({
-            ...userAuthInfo,
-            [e.target.getAttribute("name")]: e.target.value,
-        });
-    };
-
     const changeTab = (e) => {
         setUserAuthInfo(initialState);
         e.target.getAttribute("name") === "login"
@@ -44,17 +26,7 @@ const AuthModal = () => {
     return (
         <div className="form-wrap">
             <AuthTabs changeTab={changeTab} {...state} />
-            {state.isLogInOpen ? (
-                <Login
-                    submitHandler={submitHandler}
-                    submitOnChange={submitOnChange}
-                />
-            ) : (
-                <SignUp
-                    submitHandler={submitHandler}
-                    submitOnChange={submitOnChange}
-                />
-            )}
+            {state.isLogInOpen ? <Login /> : <SignUp />}
         </div>
     );
 };
