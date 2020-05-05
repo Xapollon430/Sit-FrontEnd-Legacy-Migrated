@@ -4,7 +4,7 @@ import "../AuthModal.css";
 const Login = () => {
     const [loginInfo, setLoginInfo] = useState(null);
 
-    const submitHandler = (e, type) => {
+    const submitHandler = (e) => {
         e.preventDefault();
     };
 

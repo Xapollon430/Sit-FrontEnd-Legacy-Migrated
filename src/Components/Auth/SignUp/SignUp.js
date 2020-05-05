@@ -4,7 +4,7 @@ import "../AuthModal.css";
 const SignUp = () => {
     const [signUpInfo, setSignUpInfo] = useState(null);
 
-    const submitHandler = (e, type) => {
+    const submitHandler = (e) => {
         e.preventDefault();
     };
 
