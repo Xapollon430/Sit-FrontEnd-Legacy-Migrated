@@ -6,6 +6,14 @@ const SignUp = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        fetch("http://localhost:5000/signUp", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(signUpInfo), // body data type must match "Content-Type" header
+        });
     };
 
     const submitOnChange = (e) => {

@@ -6,7 +6,14 @@ const Login = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/login", {});
+        fetch("http://localhost:5000/login", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginInfo), // body data type must match "Content-Type" header
+        });
     };
 
     const submitOnChange = (e) => {
