@@ -17,8 +17,6 @@ function Landing(props) {
 
     const closeRegisterModal = () => {
         dispatch(changeIsRegisterModalOpen(false));
-        // dispatch(changeIsLogInOpen(false));
-        // dispatch(changeIsSignUpOpen(false));
     };
 
     return (
