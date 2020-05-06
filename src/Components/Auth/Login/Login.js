@@ -6,6 +6,7 @@ const Login = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        fetch("http://localhost:5000/login", {});
     };
 
     const submitOnChange = (e) => {
