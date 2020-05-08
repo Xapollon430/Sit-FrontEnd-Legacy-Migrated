@@ -10,6 +10,16 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "USER":
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case "LOGGED_IN":
+            return {
+                ...state,
+                loggedIn: action.payload,
+            };
         case "IS_SIGN_UP_OPEN":
             return {
                 ...state,

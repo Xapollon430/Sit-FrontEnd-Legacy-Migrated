@@ -6,12 +6,6 @@ import AuthTabs from "./AuthTabs/AuthTabs";
 import { useSelector, useDispatch } from "react-redux";
 import { changeIsLogInOpen, changeIsSignUpOpen } from "../../Redux/actions";
 
-const initialState = {
-    username: null,
-    password: null,
-    email: null,
-};
-
 const AuthModal = () => {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
