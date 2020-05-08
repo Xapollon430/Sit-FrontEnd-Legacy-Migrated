@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../AuthModal.css";
-import { changeUser, setLoggedIn } from "../../../Redux/actions";
+import { changeUserAndLoggedIn } from "../../../Redux/actions";
 
 const SignUp = () => {
     const [signUpInfo, setSignUpInfo] = useState(null);
@@ -18,8 +18,7 @@ const SignUp = () => {
         let { user, token } = await response.json();
 
         if (user && token) {
-            dispatch(changeUser(user));
-            dispatch(setLoggedIn(true));
+            dispatch(changeUserAndLoggedIn({ user, loggedIn: true }));
             localStorage.setItem("jwt-token", token);
         } else {
             console.log("error");

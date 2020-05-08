@@ -19,10 +19,17 @@ export const changeIsRegisterModalOpen = (isRegisterModalOpen) => {
     };
 };
 
-export const setLoggedIn = (loggedIn) => {
+export const changeLoggedIn = (loggedIn) => {
     return {
-        type: "IS_REGISTER_MODAL_OPEN",
+        type: "LOGGED_IN",
         payload: loggedIn,
+    };
+};
+
+export const changeUserAndLoggedIn = (userAndLoggedInBundle) => {
+    return {
+        type: "USER_AND_LOGGED_IN_BUNDLE",
+        payload: userAndLoggedInBundle,
     };
 };
 
