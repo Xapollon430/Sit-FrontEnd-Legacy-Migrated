@@ -5,11 +5,7 @@ import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    changeIsLogInOpen,
-    changeIsSignUpOpen,
-    changeIsRegisterModalOpen,
-} from "../../Redux/actions";
+import { changeIsRegisterModalOpen } from "../../Redux/actions";
 
 function Landing(props) {
     let state = useSelector((state) => state);
