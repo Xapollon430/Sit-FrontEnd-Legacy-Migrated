@@ -18,7 +18,7 @@ const SignUp = () => {
         let { user, token } = await response.json();
 
         if (user && token) {
-            dispatch(changeUserAndLoggedIn({ user, loggedIn: true }));
+            dispatch(changeUserAndLoggedIn({ user, loggedIn: true })); //bundle dispatch
             localStorage.setItem("jwt-token", token);
         } else {
             console.log("error");
