@@ -6,6 +6,8 @@ const App = () => {
     return (
         <Fragment>
             <Route path="/" exact render={() => <Landing />} />
+            <Route path="/" exact render={() => <Landing />} />
+
         </Fragment>
     );
 };
