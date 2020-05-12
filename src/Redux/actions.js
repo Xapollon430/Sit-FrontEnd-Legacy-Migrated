@@ -26,16 +26,16 @@ export const changeLoggedIn = (loggedIn) => {
     };
 };
 
-export const changeUserAndLoggedIn = (userAndLoggedInBundle) => {
-    return {
-        type: "USER_AND_LOGGED_IN_BUNDLE",
-        payload: userAndLoggedInBundle,
-    };
-};
-
 export const changeUser = (user) => {
     return {
         type: "USER",
         payload: user,
+    };
+};
+
+export const generalDispatchBundler = (payload) => {
+    return {
+        type: "GENERAL_BUNDLE",
+        payload: { ...payload },
     };
 };

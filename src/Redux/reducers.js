@@ -37,7 +37,9 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 isRegisterModalOpen: action.payload,
             };
-        case "USER_AND_LOGGED_IN_BUNDLE":
+        case "GENERAL_BUNDLE":
+            console.log(action);
+
             return {
                 ...state,
                 ...action.payload,

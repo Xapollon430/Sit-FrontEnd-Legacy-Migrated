@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
-    changeUserAndLoggedIn,
+    generalDispatchBundler,
+    changeIsRegisterModalOpen,
 } from "../../Redux/actions";
 
 const AuthModal = () => {
@@ -44,8 +45,14 @@ const AuthModal = () => {
         }
 
         if (user && token) {
-            dispatch(changeUserAndLoggedIn({ user, loggedIn: true })); //bundle dispatch
-            dispatch(changeIsRegisterModalOpen(false));
+            console.log(12);
+            dispatch(
+                generalDispatchBundler({
+                    user,
+                    loggedIn: true,
+                    isRegisterModalOpen: false,
+                })
+            ); //bundle dispatch
             localStorage.setItem("jwt-token", token);
         } else {
             console.log("error");
@@ -53,7 +60,6 @@ const AuthModal = () => {
     };
 
     const onChange = (e) => {
-        console.log(e);
         setUserInfo({
             ...userInfo,
             [e.target.getAttribute("name")]: e.target.value,
