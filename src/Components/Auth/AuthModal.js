@@ -4,7 +4,11 @@ import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthTabs from "./AuthTabs/AuthTabs";
 import { useSelector, useDispatch } from "react-redux";
-import { changeIsLogInOpen, changeIsSignUpOpen } from "../../Redux/actions";
+import {
+    changeIsLogInOpen,
+    changeIsSignUpOpen,
+    changeUserAndLoggedIn,
+} from "../../Redux/actions";
 
 const AuthModal = () => {
     const state = useSelector((state) => state);
@@ -49,8 +53,9 @@ const AuthModal = () => {
     };
 
     const onChange = (e) => {
-        setSignUpInfo({
-            ...signUpInfo,
+        console.log(e);
+        setUserInfo({
+            ...userInfo,
             [e.target.getAttribute("name")]: e.target.value,
         });
     };

@@ -1,44 +1,26 @@
 import React, { useState } from "react";
 import "../AuthModal.css";
 
-const Login = () => {
-    const [loginInfo, setLoginInfo] = useState(null);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        fetch("http://localhost:5000/login", {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(loginInfo),
-        });
-    };
-
-    const submitOnChange = (e) => {
-        setLoginInfo({
-            ...loginInfo,
-            [e.target.getAttribute("name")]: e.target.value,
-        });
-    };
-
+const Login = ({ onChange, submitHandler }) => {
     return (
         <div id="login-tab-content">
-            <form className="login-form" onSubmit={submitHandler}>
+            <form
+                className="login-form"
+                onSubmit={(e) => submitHandler(e, "login")}
+            >
                 <input
                     type="text"
                     className="input"
                     name="username"
                     placeholder="Email or Username"
-                    onSubmit={submitOnChange}
+                    onChange={onChange}
                 />
                 <input
                     type="password"
                     className="input"
                     name="password"
                     placeholder="Password"
-                    onChange={submitOnChange}
+                    onChange={onChange}
                 />
                 <input type="submit" className="button" />
             </form>

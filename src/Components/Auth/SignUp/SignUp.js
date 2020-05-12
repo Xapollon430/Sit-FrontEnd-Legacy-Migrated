@@ -1,7 +1,7 @@
 import React from "react";
 import "../AuthModal.css";
 
-const SignUp = () => {
+const SignUp = ({ onChange, submitHandler }) => {
     return (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
@@ -11,21 +11,21 @@ const SignUp = () => {
                         className="input"
                         name="email"
                         placeholder="Email"
-                        onChange={submitOnChange}
+                        onChange={onChange}
                     />
                     <input
                         type="text"
                         className="input"
                         name="username"
                         placeholder="Username"
-                        onChange={submitOnChange}
+                        onChange={onChange}
                     />
                     <input
                         type="password"
                         className="input"
                         name="password"
                         placeholder="Password"
-                        onChange={submitOnChange}
+                        onChange={onChange}
                     />
                     <input type="submit" className="button" />
                 </form>
