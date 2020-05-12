@@ -1,15 +1,15 @@
 import React from "react";
 import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
-import { useResponsive } from "../../CustomHooks/Hooks";
-import { useDispatch } from "react-redux";
-import { changeIsRegisterModalOpen, changeIsSignUpOpen, changeIsLogInOpen } from "../../Redux/actions";
+import { useResponsive } from "../../../CustomHooks/Hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { changeIsRegisterModalOpen, changeIsSignUpOpen, changeIsLogInOpen } from "../../../Redux/actions";
 
 function Header() {
+	const state = useSelector((state) => state)
 	const dispatch = useDispatch();
 	const [showHamburger, isHamburgerOpen] = useResponsive();
 
 	const changeTab = (event) => {
-		// duplicate ?
 		dispatch(changeIsRegisterModalOpen(true));
 		event.target.getAttribute("name") === "login"
 			? dispatch(changeIsLogInOpen(true))

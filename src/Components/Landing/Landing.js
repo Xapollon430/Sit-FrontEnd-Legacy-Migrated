@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../Header/Header";
-import Jumbotron from "../Jumbotron/Jumbotron";
+import Header from "./Header/Header";
+import Jumbotron from "./Jumbotron/Jumbotron";
 import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIsRegisterModalOpen } from "../../Redux/actions";
 
-function Landing(props) {
+function Landing() {
     let state = useSelector((state) => state);
     let dispatch = useDispatch();
 

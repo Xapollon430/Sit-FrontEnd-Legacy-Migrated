@@ -1,37 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../AuthModal.css";
-import { changeUserAndLoggedIn } from "../../../Redux/actions";
 
 const SignUp = () => {
-    const [signUpInfo, setSignUpInfo] = useState(null);
-    let dispatch = useDispatch();
-
-    const submitHandler = async (e) => {
-        e.preventDefault();
-        let response = await fetch("http://localhost:5000/sign-up", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(signUpInfo),
-        });
-        let { user, token } = await response.json();
-
-        if (user && token) {
-            dispatch(changeUserAndLoggedIn({ user, loggedIn: true })); //bundle dispatch
-            localStorage.setItem("jwt-token", token);
-        } else {
-            console.log("error");
-        }
-    };
-
-    const submitOnChange = (e) => {
-        setSignUpInfo({
-            ...signUpInfo,
-            [e.target.getAttribute("name")]: e.target.value,
-        });
-    };
-
     return (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
