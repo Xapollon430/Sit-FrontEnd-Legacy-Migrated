@@ -15,7 +15,6 @@ const SignUp = () => {
             },
             body: JSON.stringify(signUpInfo),
         });
-        let x;
         let { user, token } = await response.json();
 
         if (user && token) {
