@@ -11,8 +11,6 @@ const AuthModal = () => {
     const dispatch = useDispatch();
 
     const changeTab = (e) => {
-        let change;
-        let newState;
         e.target.getAttribute("name") === "login"
             ? dispatch(changeIsLogInOpen(true))
             : dispatch(changeIsSignUpOpen(true));
