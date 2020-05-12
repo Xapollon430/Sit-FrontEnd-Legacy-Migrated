@@ -6,8 +6,6 @@ import AuthTabs from "./AuthTabs/AuthTabs";
 import { useSelector, useDispatch } from "react-redux";
 import { changeIsLogInOpen, changeIsSignUpOpen } from "../../Redux/actions";
 
-const initialUserState = {};
-
 const AuthModal = () => {
     const state = useSelector((state) => state);
     const [userInfo, setUserInfo] = useState(null);
@@ -27,7 +25,7 @@ const AuthModal = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(signUpInfo),
+                body: JSON.stringify(userInfo),
             });
             var { user, token } = await response.json();
         } else {
@@ -36,7 +34,7 @@ const AuthModal = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(signUpInfo),
+                body: JSON.stringify(userInfo),
             });
             var { user, token } = await response.json();
         }

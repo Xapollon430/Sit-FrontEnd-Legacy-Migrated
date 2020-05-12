@@ -1,12 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../AuthModal.css";
-import { changeUserAndLoggedIn } from "../../../Redux/actions";
-import {useDispatch } from "react-redux";
-import { changeIsRegisterModalOpen } from "../../../Redux/actions";
-
 
 const SignUp = () => {
-
     return (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
