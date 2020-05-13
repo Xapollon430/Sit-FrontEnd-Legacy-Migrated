@@ -4,16 +4,17 @@ import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthTabs from "./AuthTabs/AuthTabs";
 import { useSelector, useDispatch } from "react-redux";
+import { SignUpFormChecker } from "./AuthHelper";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
     generalDispatchBundler,
-    changeIsRegisterModalOpen,
 } from "../../Redux/actions";
 
 const AuthModal = () => {
     const state = useSelector((state) => state);
     const [userInfo, setUserInfo] = useState(null);
+    const [formError, setFormError] = useState(null);
     const dispatch = useDispatch();
 
     const changeTab = (e) => {
@@ -24,6 +25,7 @@ const AuthModal = () => {
 
     const submitHandler = async (e, type) => {
         e.preventDefault();
+        // let x =
         if (type == "login") {
             let response = await fetch("http://localhost:5000/login", {
                 method: "POST",
@@ -45,7 +47,6 @@ const AuthModal = () => {
         }
 
         if (user && token) {
-            console.log(12);
             dispatch(
                 generalDispatchBundler({
                     user,
