@@ -11,16 +11,17 @@ import {
     generalDispatchBundler,
 } from "../../Redux/actions";
 
-// const logInInitialState = {
-//     email: null,
-//     password:null
-// }
+const initialUserState = {
+    email: "",
+    username: "",
+    password: "",
+};
 
 // const signUpInitialState
 
 const AuthModal = () => {
     const state = useSelector((state) => state);
-    const [userInfo, setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState(initialUserState);
     const [formError, setFormError] = useState({});
     const dispatch = useDispatch();
 

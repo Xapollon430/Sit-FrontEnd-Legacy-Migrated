@@ -14,7 +14,6 @@ function Landing() {
     const closeRegisterModal = () => {
         dispatch(changeIsRegisterModalOpen(false));
     };
-
     return (
         <BackgroundImage>
             <Header />

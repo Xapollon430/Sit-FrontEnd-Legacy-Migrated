@@ -7,7 +7,7 @@ export const SignUpFormChecker = (formData, setError) => {
         password: null,
     };
     for (let data in errorData) {
-        if (formData[data] == undefined) {
+        if (formData[data] == "") {
             errorData[data] = `${
                 data.charAt(0).toUpperCase() + data.slice(1)
             } can't be empty!`;
