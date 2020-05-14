@@ -126,9 +126,8 @@
     margin-left: -5px;
 }
 
-.error {
-    border-bottom: red;
-    display: none;
+#error {
+    border: 1px solid red;
 }
 
 .error-message {

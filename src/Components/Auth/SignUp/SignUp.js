@@ -2,27 +2,22 @@ import React from "react";
 import "../AuthModal.css";
 
 const SignUp = ({ onChange, submitHandler, formError }) => {
-    let x = `123`;
     return (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
-                <form className="signup-form" onSubmit={submitHandler}>
-                    <input
-                        // type="email"
-                        className={`input ${formError.email ? `error` : ""}`}
-                        name="email"
-                        placeholder="Email"
-                        onChange={onChange}
-                    />
+                <form
+                    className="signup-form"
+                    onSubmit={(e) => submitHandler(e, "sign-up")}
+                >
                     {formError.email ? (
                         <div className="error-message">{formError.email}</div>
                     ) : null}
-
                     <input
-                        type="text"
-                        className={`input ${formError.username ? `error` : ""}`}
-                        name="username"
-                        placeholder="Username"
+                        // type="email"
+                        className="input"
+                        id={formError.email ? "error" : ""}
+                        name="email"
+                        placeholder="Email"
                         onChange={onChange}
                     />
                     {formError.username ? (
@@ -30,12 +25,12 @@ const SignUp = ({ onChange, submitHandler, formError }) => {
                             {formError.username}
                         </div>
                     ) : null}
-
                     <input
-                        type="password"
-                        className={`input ${formError.password ? `error` : ""}`}
-                        name="password"
-                        placeholder="Password"
+                        type="text"
+                        className="input"
+                        id={formError.username ? "error" : ""}
+                        name="username"
+                        placeholder="Username"
                         onChange={onChange}
                     />
                     {formError.password ? (
@@ -43,6 +38,15 @@ const SignUp = ({ onChange, submitHandler, formError }) => {
                             {formError.password}
                         </div>
                     ) : null}
+                    <input
+                        type="password"
+                        className="input"
+                        id={formError.password ? "error" : ""}
+                        name="password"
+                        placeholder="Password"
+                        onChange={onChange}
+                    />
+
                     <input type="submit" className="button" />
                 </form>
                 <div className="help-text">

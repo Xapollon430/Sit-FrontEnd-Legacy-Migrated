@@ -4,7 +4,7 @@ import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthTabs from "./AuthTabs/AuthTabs";
 import { useSelector, useDispatch } from "react-redux";
-import { SignUpFormChecker } from "./AuthHelper";
+import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
@@ -17,55 +17,42 @@ const initialUserState = {
     password: "",
 };
 
-// const signUpInitialState
-
 const AuthModal = () => {
     const state = useSelector((state) => state);
     const [userInfo, setUserInfo] = useState(initialUserState);
     const [formError, setFormError] = useState({});
     const dispatch = useDispatch();
 
-    const changeTab = (e) => {
-        e.target.getAttribute("name") === "login"
-            ? dispatch(changeIsLogInOpen(true))
-            : dispatch(changeIsSignUpOpen(true));
-    };
-
     const submitHandler = async (e, type) => {
         e.preventDefault();
-        if (type == "login") {
-            let response = await fetch("http://localhost:5000/login", {
+
+        let errors =
+            type === "login"
+                ? logInFormChecker(userInfo)
+                : signUpFormChecker(userInfo);
+
+        setFormError(errors);
+
+        if (!errors.errorExists) {
+            let response = await fetch(`http://localhost:5000/${type}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(userInfo),
             });
-            var { user, token } = await response.json();
-        } else {
-            setFormError(SignUpFormChecker(userInfo));
+            let { user, token } = await response.json();
 
-            let response = await fetch("http://localhost:5000/sign-up", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userInfo),
-            });
-            var { user, token } = await response.json();
-        }
-
-        if (user && token) {
-            dispatch(
-                generalDispatchBundler({
-                    user,
-                    loggedIn: true,
-                    isRegisterModalOpen: false,
-                })
-            ); //bundle dispatch
-            localStorage.setItem("jwt-token", token);
-        } else {
-            console.log("error");
+            if (user && token) {
+                dispatch(
+                    generalDispatchBundler({
+                        user,
+                        loggedIn: true,
+                        isRegisterModalOpen: false,
+                    })
+                );
+                localStorage.setItem("jwt-token", token);
+            }
         }
     };
 
@@ -74,6 +61,14 @@ const AuthModal = () => {
             ...userInfo,
             [e.target.getAttribute("name")]: e.target.value,
         });
+    };
+
+    const changeTab = (e) => {
+        e.target.getAttribute("name") === "login"
+            ? dispatch(changeIsLogInOpen(true))
+            : dispatch(changeIsSignUpOpen(true));
+        setFormError({});
+        setUserInfo(initialUserState); // ??? chnge when local
     };
 
     return (

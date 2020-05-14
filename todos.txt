@@ -1,0 +1,7 @@
+Todos
+
+1- make modals local state
+2- fix bugs/id
+
+Completed
+

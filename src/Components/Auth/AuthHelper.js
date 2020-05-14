@@ -1,6 +1,7 @@
 import validator from "validator";
 
-export const SignUpFormChecker = (formData, setError) => {
+export const signUpFormChecker = (formData) => {
+    let errorExists = null;
     let errorData = {
         email: null,
         username: null,
@@ -11,17 +12,31 @@ export const SignUpFormChecker = (formData, setError) => {
             errorData[data] = `${
                 data.charAt(0).toUpperCase() + data.slice(1)
             } can't be empty!`;
-        } else if (data == "email") {
-            errorData[data] = validator.isEmail(formData[data])
-                ? null
-                : `Please enter a valid email!`;
-        } else if (data == "password") {
-            errorData[data] =
-                formData[data].length < 6
-                    ? `Password should be longer than 6 !`
-                    : null;
+            errorExists = true;
+        } else if (data == "email" && !validator.isEmail(formData[data])) {
+            errorData[data] = `Please enter a valid email!`;
+            errorExists = true;
+        } else if (data == "password" && formData[data].length < 6) {
+            errorData[data] = `Password should be longer than 6 !`;
+            errorExists = true;
         }
     }
-    console.log(errorData);
-    return errorData;
+    return { ...errorData, errorExists };
+};
+
+export const logInFormChecker = (formData) => {
+    let errorExists = null;
+    let errorData = {
+        email: null,
+        password: null,
+    };
+    for (let data in errorData) {
+        if (formData[data] == "") {
+            errorData[data] = `${
+                data.charAt(0).toUpperCase() + data.slice(1)
+            } can't be empty!`;
+            errorExists = true;
+        }
+    }
+    return { ...errorData, errorExists };
 };
