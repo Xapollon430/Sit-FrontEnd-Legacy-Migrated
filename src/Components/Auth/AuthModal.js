@@ -11,10 +11,17 @@ import {
     generalDispatchBundler,
 } from "../../Redux/actions";
 
+// const logInInitialState = {
+//     email: null,
+//     password:null
+// }
+
+// const signUpInitialState
+
 const AuthModal = () => {
     const state = useSelector((state) => state);
-    const [userInfo, setUserInfo] = useState(null);
-    const [formError, setFormError] = useState(null);
+    const [userInfo, setUserInfo] = useState({});
+    const [formError, setFormError] = useState({});
     const dispatch = useDispatch();
 
     const changeTab = (e) => {
@@ -25,7 +32,6 @@ const AuthModal = () => {
 
     const submitHandler = async (e, type) => {
         e.preventDefault();
-        // let x =
         if (type == "login") {
             let response = await fetch("http://localhost:5000/login", {
                 method: "POST",
@@ -36,6 +42,8 @@ const AuthModal = () => {
             });
             var { user, token } = await response.json();
         } else {
+            setFormError(SignUpFormChecker(userInfo));
+
             let response = await fetch("http://localhost:5000/sign-up", {
                 method: "POST",
                 headers: {
@@ -71,9 +79,17 @@ const AuthModal = () => {
         <div className="form-wrap">
             <AuthTabs changeTab={changeTab} {...state} />
             {state.isLogInOpen ? (
-                <Login onChange={onChange} submitHandler={submitHandler} />
+                <Login
+                    onChange={onChange}
+                    submitHandler={submitHandler}
+                    formError={formError}
+                />
             ) : (
-                <SignUp onChange={onChange} submitHandler={submitHandler} />
+                <SignUp
+                    onChange={onChange}
+                    submitHandler={submitHandler}
+                    formError={formError}
+                />
             )}
         </div>
     );

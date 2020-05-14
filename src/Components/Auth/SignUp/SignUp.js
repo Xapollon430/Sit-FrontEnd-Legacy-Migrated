@@ -1,32 +1,48 @@
 import React from "react";
 import "../AuthModal.css";
 
-const SignUp = ({ onChange, submitHandler }) => {
+const SignUp = ({ onChange, submitHandler, formError }) => {
+    let x = `123`;
     return (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
                 <form className="signup-form" onSubmit={submitHandler}>
                     <input
-                        type="email"
-                        className="input"
+                        // type="email"
+                        className={`input ${formError.email ? `error` : ""}`}
                         name="email"
                         placeholder="Email"
                         onChange={onChange}
                     />
+                    {formError.email ? (
+                        <div className="error-message">{formError.email}</div>
+                    ) : null}
+
                     <input
                         type="text"
-                        className="input"
+                        className={`input ${formError.username ? `error` : ""}`}
                         name="username"
                         placeholder="Username"
                         onChange={onChange}
                     />
+                    {formError.username ? (
+                        <div className="error-message">
+                            {formError.username}
+                        </div>
+                    ) : null}
+
                     <input
                         type="password"
-                        className="input"
+                        className={`input ${formError.password ? `error` : ""}`}
                         name="password"
                         placeholder="Password"
                         onChange={onChange}
                     />
+                    {formError.password ? (
+                        <div className="error-message">
+                            {formError.password}
+                        </div>
+                    ) : null}
                     <input type="submit" className="button" />
                 </form>
                 <div className="help-text">
