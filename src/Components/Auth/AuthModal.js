@@ -67,8 +67,8 @@ const AuthModal = () => {
         e.target.getAttribute("name") === "login"
             ? dispatch(changeIsLogInOpen(true))
             : dispatch(changeIsSignUpOpen(true));
-        setFormError({});
-        setUserInfo(initialUserState); // ??? chnge when local
+        // setFormError({});
+        // setUserInfo(initialUserState); // ??? chnge when local
     };
 
     return (
