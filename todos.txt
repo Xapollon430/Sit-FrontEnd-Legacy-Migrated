@@ -1,6 +1,6 @@
 Todos
 
-1- make modals local state
+1- make modals usereducer
 2- fix bugs/id
 
 Completed
