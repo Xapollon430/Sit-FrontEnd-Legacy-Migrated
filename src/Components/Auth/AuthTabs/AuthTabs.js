@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ModalContext } from "../../Landing/LandingReducer";
 import "../AuthModal.css";
-const AuthTabs = ({ changeTab, isSignUpOpen, isLogInOpen }) => {
+
+const AuthTabs = ({ changeTab }) => {
+    let modal = useContext(ModalContext);
+    console.log(modal);
     return (
         <div className="form-wrap">
             <div className="tabs">
                 <h3 className="signup-tab">
                     <span
-                        className={isSignUpOpen ? "active" : ""}
+                        className={modal.isSignUpOpen ? "active" : ""}
                         onClick={changeTab}
                     >
                         Sign Up
@@ -14,7 +18,7 @@ const AuthTabs = ({ changeTab, isSignUpOpen, isLogInOpen }) => {
                 </h3>
                 <h3 className="login-tab">
                     <span
-                        className={isLogInOpen ? "active" : ""}
+                        className={modal.isLogInOpen ? "active" : ""}
                         name="login"
                         onClick={changeTab}
                     >
