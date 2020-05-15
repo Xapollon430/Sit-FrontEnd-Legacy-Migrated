@@ -3,13 +3,12 @@ import "./AuthModal.css";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthTabs from "./AuthTabs/AuthTabs";
-import { useSelector, useDispatch } from "react-redux";
-import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
-    generalDispatchBundler,
-} from "../../Redux/actions";
+} from "../Landing/LandingReducer";
+import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
+import { generalDispatchBundler } from "../../Redux/actions";
 
 const initialUserState = {
     email: "",
@@ -17,11 +16,9 @@ const initialUserState = {
     password: "",
 };
 
-const AuthModal = () => {
-    const state = useSelector((state) => state);
+const AuthModal = ({ setModalState }) => {
     const [userInfo, setUserInfo] = useState(initialUserState);
     const [formError, setFormError] = useState({});
-    const dispatch = useDispatch();
 
     const submitHandler = async (e, type) => {
         e.preventDefault();
@@ -48,9 +45,9 @@ const AuthModal = () => {
                     generalDispatchBundler({
                         user,
                         loggedIn: true,
-                        isRegisterModalOpen: false,
                     })
                 );
+                closeRegisterModal();
                 localStorage.setItem("jwt-token", token);
             }
         }
@@ -65,8 +62,8 @@ const AuthModal = () => {
 
     const changeTab = (e) => {
         e.target.getAttribute("name") === "login"
-            ? dispatch(changeIsLogInOpen(true))
-            : dispatch(changeIsSignUpOpen(true));
+            ? setModalState(changeIsLogInOpen(true))
+            : setModalState(changeIsSignUpOpen(true));
         setFormError({});
         setUserInfo(initialUserState); // ??? chnge when local
     };

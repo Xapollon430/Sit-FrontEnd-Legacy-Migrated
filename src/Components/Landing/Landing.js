@@ -4,29 +4,14 @@ import Jumbotron from "./Jumbotron/Jumbotron";
 import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
-import { useDispatch, useSelector } from "react-redux";
-import { changeIsRegisterModalOpen } from "../../Redux/actions";
 
-const initialReducerState = {
-    isModalOpen: false,
-    isLogInOpen: false,
-    isSignUpOpen: false,
-};
-
-const modalReducer = (state = initialReducerState, action) => {
-    switch (action.type) {
-        case "IS_MODAL_OPEN":
-            return {
-                ...state,
-            };
-    }
-};
+import LandingReducer, { changeIsModalOpen } from "./LandingReducer";
 
 function Landing() {
-    let [modalState, setModalState] = useReducer();
+    let [modalState, setModalState] = useReducer(LandingReducer);
 
     const closeRegisterModal = () => {
-        dispatch(changeIsRegisterModalOpen(false));
+        setModalState(changeIsModalOpen(false));
     };
 
     return (
@@ -35,10 +20,10 @@ function Landing() {
 
             <Jumbotron />
             <Modal
-                showModal={state.isRegisterModalOpen}
+                showModal={modalState.isRegisterModalOpen}
                 onCancel={closeRegisterModal}
             >
-                <AuthModal />
+                <AuthModal setModalState={setModalState} />
             </Modal>
         </BackgroundImage>
     );
