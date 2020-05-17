@@ -13,7 +13,6 @@ function Header() {
     const [showHamburger, isHamburgerOpen] = useResponsive();
     const modal = useContext(ModalContext);
     const globalState = useSelector((state) => state);
-    console.log(globalState);
 
     const openModal = (event) => {
         modal.setModalState(changeIsModalOpen(true));

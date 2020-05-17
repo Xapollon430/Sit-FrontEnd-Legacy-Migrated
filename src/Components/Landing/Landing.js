@@ -4,27 +4,25 @@ import Jumbotron from "./Jumbotron/Jumbotron";
 import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
-import ModalContextProvider, { ModalContext } from "./ModalContextProvider";
+import { ModalContext } from "./ModalContextProvider";
 
-function Landing() {
+function Landing(props) {
+    const modalContext = useContext(ModalContext);
+
     const closeRegisterModal = () => {
         setModalState(changeIsModalOpen(false));
     };
 
-    const modalContext = useContext(ModalContext);
-
     return (
         <BackgroundImage>
-            <ModalContextProvider>
-                <Header />
-                <Jumbotron />
-                <Modal
-                    showModal={modalContext.isModalOpen}
-                    onCancel={closeRegisterModal}
-                >
-                    <AuthModal />
-                </Modal>
-            </ModalContextProvider>
+            <Header />
+            <Jumbotron />
+            <Modal
+                showModal={modalContext.isModalOpen}
+                onCancel={closeRegisterModal}
+            >
+                <AuthModal />
+            </Modal>
         </BackgroundImage>
     );
 }

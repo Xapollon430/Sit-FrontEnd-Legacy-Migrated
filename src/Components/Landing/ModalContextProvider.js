@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 const ModalContextProvider = (props) => {
     let [modalState, setModalState] = useReducer(
