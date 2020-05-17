@@ -10,18 +10,10 @@ const App = () => {
     return (
         <Fragment>
             <ModalContextProvider>
-                <X></X>
-                <Route path="/" exact render={() => <Landing />} />
+                <Route path="/" exact render={() => <Landing />} />{" "}
             </ModalContextProvider>
-            <Route path="/" exact render={() => <Landing />} />
         </Fragment>
     );
 };
 
 export default App;
-
-const X = () => {
-    let x = useContext(ModalContext);
-    console.log(x);
-    return <button>123</button>;
-};

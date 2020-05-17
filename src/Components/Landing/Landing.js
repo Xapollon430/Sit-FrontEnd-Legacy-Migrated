@@ -5,12 +5,13 @@ import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
 import { ModalContext } from "./ModalContextProvider";
+import { changeIsModalOpen } from "../Landing/ModalContextProvider";
 
-function Landing(props) {
+function Landing() {
     const modalContext = useContext(ModalContext);
 
     const closeRegisterModal = () => {
-        setModalState(changeIsModalOpen(false));
+        modalContext.setModalState(changeIsModalOpen(false));
     };
 
     return (

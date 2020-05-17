@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
+    changeIsModalOpen,
     ModalContext,
 } from "../Landing/ModalContextProvider";
 import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
@@ -22,6 +23,7 @@ const AuthModal = () => {
     const [userInfo, setUserInfo] = useState(initialUserState);
     const [formError, setFormError] = useState({});
     const modal = useContext(ModalContext);
+    const dispatch = useDispatch();
 
     const submitHandler = async (e, type) => {
         e.preventDefault();
@@ -50,7 +52,7 @@ const AuthModal = () => {
                         loggedIn: true,
                     })
                 );
-                // closeRegisterModal();
+                modal.setModalState(changeIsModalOpen(false));
                 localStorage.setItem("jwt-token", token);
             }
         }
