@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { ModalContext } from "../../Landing/LandingReducer";
+import { ModalContext } from "../../Landing/ModalContextProvider";
 import "../AuthModal.css";
 
 const AuthTabs = ({ changeTab }) => {
     let modal = useContext(ModalContext);
-    console.log(modal);
     return (
         <div className="form-wrap">
             <div className="tabs">

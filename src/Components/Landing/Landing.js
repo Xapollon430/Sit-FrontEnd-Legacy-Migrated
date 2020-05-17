@@ -1,50 +1,31 @@
-import React, { useReducer } from "react";
+import React, { useContext } from "react";
 import Header from "./Header/Header";
 import Jumbotron from "./Jumbotron/Jumbotron";
 import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import AuthModal from "../Auth/AuthModal";
-
-import LandingReducer, {
-    changeIsModalOpen,
-    ModalContext,
-} from "./LandingReducer";
-
-const initialReducerState = {
-    isModalOpen: false,
-    isLogInOpen: false,
-    isSignUpOpen: false,
-};
+import ModalContextProvider, { ModalContext } from "./ModalContextProvider";
 
 function Landing() {
-    let [modalState, setModalState] = useReducer(
-        LandingReducer,
-        initialReducerState
-    );
-
     const closeRegisterModal = () => {
         setModalState(changeIsModalOpen(false));
     };
 
-    return (
-        <ModalContext.Provider
-            value={{
-                setModalState,
-                ...modalState,
-            }}
-        >
-            <BackgroundImage>
-                <Header />
+    const modalContext = useContext(ModalContext);
 
+    return (
+        <BackgroundImage>
+            <ModalContextProvider>
+                <Header />
                 <Jumbotron />
                 <Modal
-                    showModal={modalState.isModalOpen}
+                    showModal={modalContext.isModalOpen}
                     onCancel={closeRegisterModal}
                 >
                     <AuthModal />
                 </Modal>
-            </BackgroundImage>
-        </ModalContext.Provider>
+            </ModalContextProvider>
+        </BackgroundImage>
     );
 }
 

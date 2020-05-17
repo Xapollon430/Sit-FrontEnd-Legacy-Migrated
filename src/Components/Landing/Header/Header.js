@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
 import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
 import { useResponsive } from "../../../CustomHooks/Hooks";
+import { useSelector } from "react-redux";
 import {
     changeIsModalOpen,
     changeIsSignUpOpen,
     changeIsLogInOpen,
     ModalContext,
-} from "../LandingReducer";
+} from "../ModalContextProvider";
 
 function Header() {
     const [showHamburger, isHamburgerOpen] = useResponsive();
     const modal = useContext(ModalContext);
+    const globalState = useSelector((state) => state);
+    console.log(globalState);
 
-    const changeTab = (event) => {
+    const openModal = (event) => {
         modal.setModalState(changeIsModalOpen(true));
         event.target.getAttribute("name") === "login"
             ? modal.setModalState(changeIsLogInOpen(true))
@@ -29,12 +32,22 @@ function Header() {
                 </Button>
                 <Button variant="outlined">Be A Sitter</Button>
                 <EmptyDiv />
-                <Button variant="outlined" name="login" onClick={changeTab}>
-                    Log In
-                </Button>
-                <Button variant="outlined" name="signup" onClick={changeTab}>
-                    Sign Up
-                </Button>
+                {globalState.loggedIn ? (
+                    <Button variant="outlined" name="login">
+                        {globalState.user.username}
+                    </Button>
+                ) : (
+                    <Button variant="outlined" name="login" onClick={openModal}>
+                        Log In
+                    </Button>
+                )}
+                {globalState.loggedIn ? (
+                    <Button variant="outlined">Log Out</Button>
+                ) : (
+                    <Button variant="outlined" onClick={openModal}>
+                        Sign Up
+                    </Button>
+                )}
             </Nav>
         </Navbar>
     );

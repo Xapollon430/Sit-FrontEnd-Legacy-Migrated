@@ -13,7 +13,7 @@ const Login = ({ onChange, submitHandler, formError }) => {
                 ) : null}
                 <input
                     type="text"
-                    className="input"
+                    className={`input ${formError.email ? "error" : ""}`}
                     id={formError.email ? "error" : ""}
                     name="email"
                     placeholder="Email"
@@ -24,9 +24,8 @@ const Login = ({ onChange, submitHandler, formError }) => {
                 ) : null}
                 <input
                     type="password"
-                    className="input"
+                    className={`input ${formError.password ? "error" : ""}`}
                     name="password"
-                    id={formError.password ? "error" : ""}
                     placeholder="Password"
                     onChange={onChange}
                 />

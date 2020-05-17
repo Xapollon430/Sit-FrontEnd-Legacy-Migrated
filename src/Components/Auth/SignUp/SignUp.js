@@ -14,8 +14,7 @@ const SignUp = ({ onChange, submitHandler, formError }) => {
                     ) : null}
                     <input
                         // type="email"
-                        className="input"
-                        id={formError.email ? "error" : ""}
+                        className={`input ${formError.email ? "error" : ""}`}
                         name="email"
                         placeholder="Email"
                         onChange={onChange}
@@ -27,8 +26,7 @@ const SignUp = ({ onChange, submitHandler, formError }) => {
                     ) : null}
                     <input
                         type="text"
-                        className="input"
-                        id={formError.username ? "error" : ""}
+                        className={`input ${formError.username ? "error" : ""}`}
                         name="username"
                         placeholder="Username"
                         onChange={onChange}
@@ -40,8 +38,7 @@ const SignUp = ({ onChange, submitHandler, formError }) => {
                     ) : null}
                     <input
                         type="password"
-                        className="input"
-                        id={formError.password ? "error" : ""}
+                        className={`input ${formError.password ? "error" : ""}`}
                         name="password"
                         placeholder="Password"
                         onChange={onChange}

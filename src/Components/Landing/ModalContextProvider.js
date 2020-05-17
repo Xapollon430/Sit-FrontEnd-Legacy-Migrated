@@ -1,6 +1,31 @@
+import React, { useReducer } from "react";
 import { createContext } from "react";
 
-const LandingReducer = (state = initialReducerState, action) => {
+const ModalContextProvider = (props) => {
+    let [modalState, setModalState] = useReducer(
+        ModalContextReducer,
+        initialReducerState
+    );
+
+    return (
+        <ModalContext.Provider
+            value={{
+                setModalState,
+                ...modalState,
+            }}
+        >
+            {props.children}
+        </ModalContext.Provider>
+    );
+};
+
+const initialReducerState = {
+    isModalOpen: false,
+    isLogInOpen: false,
+    isSignUpOpen: false,
+};
+
+const ModalContextReducer = (state = initialReducerState, action) => {
     switch (action.type) {
         case "IS_MODAL_OPEN":
             return {
@@ -45,4 +70,4 @@ export const changeIsSignUpOpen = (isSignUpOpen) => {
 
 export const ModalContext = createContext(null);
 
-export default LandingReducer;
+export default ModalContextProvider;

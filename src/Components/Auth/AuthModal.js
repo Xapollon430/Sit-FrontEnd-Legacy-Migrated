@@ -3,11 +3,12 @@ import "./AuthModal.css";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthTabs from "./AuthTabs/AuthTabs";
+import { useDispatch } from "react-redux";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
     ModalContext,
-} from "../Landing/LandingReducer";
+} from "../Landing/ModalContextProvider";
 import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
 import { generalDispatchBundler } from "../../Redux/actions";
 
@@ -67,7 +68,7 @@ const AuthModal = () => {
             ? modal.setModalState(changeIsLogInOpen(true))
             : modal.setModalState(changeIsSignUpOpen(true));
         setFormError({});
-        setUserInfo(initialUserState); // ??? chnge when local
+        setUserInfo(initialUserState);
     };
 
     return (

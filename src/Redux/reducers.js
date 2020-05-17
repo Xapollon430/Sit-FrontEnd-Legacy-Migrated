@@ -1,11 +1,8 @@
 import { createStore } from "redux";
 
 const initialState = {
-    isSignUpOpen: false,
-    isLogInOpen: false,
-    isRegisterModalOpen: false,
     loggedIn: false,
-    user: null,
+    user: false,
 };
 
 const rootReducer = (state = initialState, action) => {
