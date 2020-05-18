@@ -1,7 +1,9 @@
 Todos
 
-1- make modals usereducer
-2- fix bugs/id
+
 
 Completed
 
+
+1- make modals usereducer 
+2- fix bugs/id
