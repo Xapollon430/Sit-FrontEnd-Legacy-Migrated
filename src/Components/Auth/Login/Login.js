@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../AuthModal.css";
 
-const Login = ({ onChange, submitHandler, formError }) => {
-    return (
+const Login = ({ onChange, submitHandler, formError, isLoading }) => {
+    return isLoading ? (
+        <div className="spinner"></div>
+    ) : (
         <div id="login-tab-content">
             <form
                 className="login-form"

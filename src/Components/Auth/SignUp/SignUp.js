@@ -1,8 +1,10 @@
 import React from "react";
 import "../AuthModal.css";
 
-const SignUp = ({ onChange, submitHandler, formError }) => {
-    return (
+const SignUp = ({ onChange, submitHandler, formError, isLoading }) => {
+    return isLoading ? (
+        <div className="spinner"></div>
+    ) : (
         <div className="tabs-content">
             <div id="signup-tab-content" className="active">
                 <form

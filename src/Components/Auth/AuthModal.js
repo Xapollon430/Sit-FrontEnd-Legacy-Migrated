@@ -22,6 +22,7 @@ const initialUserState = {
 const AuthModal = () => {
     const [userInfo, setUserInfo] = useState(initialUserState);
     const [formError, setFormError] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     const modal = useContext(ModalContext);
     const dispatch = useDispatch();
 
@@ -36,6 +37,7 @@ const AuthModal = () => {
         setFormError(errors);
 
         if (!errors.errorExists) {
+            setIsLoading(true);
             let response = await fetch(`http://localhost:5000/${type}`, {
                 method: "POST",
                 headers: {
@@ -52,6 +54,7 @@ const AuthModal = () => {
                         loggedIn: true,
                     })
                 );
+                setIsLoading(false);
                 modal.setModalState(changeIsModalOpen(false));
                 localStorage.setItem("jwt-token", token);
             }
@@ -81,12 +84,14 @@ const AuthModal = () => {
                     onChange={onChange}
                     submitHandler={submitHandler}
                     formError={formError}
+                    isLoading={isLoading}
                 />
             ) : (
                 <SignUp
                     onChange={onChange}
                     submitHandler={submitHandler}
                     formError={formError}
+                    isLoading={isLoading}
                 />
             )}
         </div>
