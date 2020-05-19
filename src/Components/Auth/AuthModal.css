@@ -168,3 +168,7 @@
 .form-wrap {
     display: grid;
 }
+
+.padding-left {
+    padding-left: 20px;
+}

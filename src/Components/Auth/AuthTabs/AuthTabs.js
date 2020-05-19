@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ModalContext } from "../../Landing/ModalContextProvider";
 import "../AuthModal.css";
 
-const AuthTabs = ({ changeTab }) => {
+const AuthTabs = ({ changeTab, errorMessageFromServer }) => {
     let modal = useContext(ModalContext);
     return (
         <div className="form-wrap">
@@ -25,6 +25,11 @@ const AuthTabs = ({ changeTab }) => {
                     </span>
                 </h3>
             </div>
+            {errorMessageFromServer ? (
+                <div className="error-message padding-left">
+                    {errorMessageFromServer}
+                </div>
+            ) : null}
         </div>
     );
 };

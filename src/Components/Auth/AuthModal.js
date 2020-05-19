@@ -22,9 +22,12 @@ const initialUserState = {
 const AuthModal = () => {
     const [userInfo, setUserInfo] = useState(initialUserState);
     const [formError, setFormError] = useState({});
+    const [errorMessageFromServer, setErrorMessageFromServer] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const modal = useContext(ModalContext);
-    const dispatch = useDispatch();
+    const modalContext = useContext(ModalContext);
+    const globalDispatch = useDispatch();
+
+    console.log(errorMessageFromServer);
 
     const submitHandler = async (e, type) => {
         e.preventDefault();
@@ -38,6 +41,7 @@ const AuthModal = () => {
 
         if (!errors.errorExists) {
             setIsLoading(true);
+
             let response = await fetch(`http://localhost:5000/${type}`, {
                 method: "POST",
                 headers: {
@@ -45,19 +49,22 @@ const AuthModal = () => {
                 },
                 body: JSON.stringify(userInfo),
             });
-            let { user, token } = await response.json();
+            let data = await response.json();
 
-            if (user && token) {
-                dispatch(
+            if (data.user && data.token) {
+                globalDispatch(
                     generalDispatchBundler({
-                        user,
+                        user: data.user,
                         loggedIn: true,
                     })
                 );
-                setIsLoading(false);
-                modal.setModalState(changeIsModalOpen(false));
-                localStorage.setItem("jwt-token", token);
+                modalContext.setModalState(changeIsModalOpen(false));
+                localStorage.setItem("jwt-token", data.token);
+            } else {
+                setErrorMessageFromServer(data.message);
+                setUserInfo(initialUserState);
             }
+            setIsLoading(false);
         }
     };
 
@@ -70,16 +77,20 @@ const AuthModal = () => {
 
     const changeTab = (e) => {
         e.target.getAttribute("name") === "login"
-            ? modal.setModalState(changeIsLogInOpen(true))
-            : modal.setModalState(changeIsSignUpOpen(true));
+            ? modalContext.setModalState(changeIsLogInOpen(true))
+            : modalContext.setModalState(changeIsSignUpOpen(true));
         setFormError({});
+        setErrorMessageFromServer(null);
         setUserInfo(initialUserState);
     };
 
     return (
         <div className="form-wrap">
-            <AuthTabs changeTab={changeTab} />
-            {modal.isLogInOpen ? (
+            <AuthTabs
+                changeTab={changeTab}
+                errorMessageFromServer={errorMessageFromServer}
+            />
+            {modalContext.isLogInOpen ? (
                 <Login
                     onChange={onChange}
                     submitHandler={submitHandler}

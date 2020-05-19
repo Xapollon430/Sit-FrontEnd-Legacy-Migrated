@@ -12,15 +12,15 @@ import { changeLoggedIn } from "../../../Redux/actions";
 
 function Header() {
     const [showHamburger, isHamburgerOpen] = useResponsive();
-    const modal = useContext(ModalContext);
+    const modalContext = useContext(ModalContext);
     const globalState = useSelector((state) => state);
     const globalDispatch = useDispatch();
 
     const openModal = (event) => {
-        modal.setModalState(changeIsModalOpen(true));
+        modalContext.setModalState(changeIsModalOpen(true));
         event.target.getAttribute("name") === "login"
-            ? modal.setModalState(changeIsLogInOpen(true))
-            : modal.setModalState(changeIsSignUpOpen(true));
+            ? modalContext.setModalState(changeIsLogInOpen(true))
+            : modalContext.setModalState(changeIsSignUpOpen(true));
     };
 
     const logOut = () => {

@@ -10,7 +10,7 @@ const App = () => {
     return (
         <Fragment>
             <ModalContextProvider>
-                <Route path="/" exact render={() => <Landing />} />{" "}
+                <Route path="/" exact render={() => <Landing />} />
             </ModalContextProvider>
         </Fragment>
     );
