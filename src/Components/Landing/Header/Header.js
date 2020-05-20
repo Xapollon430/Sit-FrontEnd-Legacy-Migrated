@@ -8,6 +8,7 @@ import {
     changeIsLogInOpen,
     ModalContext,
 } from "../ModalContextProvider";
+import Dropdown from "../../../UI/Dropdown/Dropdown";
 import { changeLoggedIn } from "../../../Redux/actions";
 
 function Header() {
@@ -43,9 +44,16 @@ function Header() {
                         {globalState.user.username}
                     </Button>
                 ) : (
-                    <Button variant="outlined" name="login" onClick={openModal}>
-                        Log In
-                    </Button>
+                    <React.Fragment>
+                        <Button
+                            variant="outlined"
+                            name="login"
+                            onClick={openModal}
+                        >
+                            Profile
+                        </Button>
+                        <Dropdown>{["Profile", "Settings", "Help"]}</Dropdown>
+                    </React.Fragment>
                 )}
                 {globalState.loggedIn ? (
                     <Button variant="outlined" onClick={logOut}>
