@@ -4,7 +4,7 @@ export const Navbar = styled.div`
     padding: 20px 30px 20px 20px;
     display: grid;
     grid-template-areas: "brand nav";
-    grid-template-columns: 100px;
+    grid-template-columns: 100px auto;
     align-items: center;
     justify-items: center;
     @media (max-width: 700px) {

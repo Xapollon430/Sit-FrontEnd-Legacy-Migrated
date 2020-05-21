@@ -57,7 +57,19 @@ function Header() {
                         >
                             Profile
                         </Button>
-                        <Dropdown>{["Profile", "Settings", "Help"]}</Dropdown>
+                        <Dropdown>
+                            {[
+                                [
+                                    <i
+                                        style={{ marginRight: 10 + "px" }}
+                                        className="fas fa-user-circle"
+                                    ></i>,
+                                    "Profile",
+                                ],
+                                ["Settings"],
+                                ["Help"],
+                            ]}
+                        </Dropdown>
                     </React.Fragment>
                 )}
                 {globalState.loggedIn ? (
