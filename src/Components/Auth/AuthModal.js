@@ -27,8 +27,6 @@ const AuthModal = () => {
     const modalContext = useContext(ModalContext);
     const globalDispatch = useDispatch();
 
-    console.log(errorMessageFromServer);
-
     const submitHandler = async (e, type) => {
         e.preventDefault();
 

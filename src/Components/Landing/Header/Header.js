@@ -29,6 +29,10 @@ function Header() {
         globalDispatch(changeLoggedIn(false));
     };
 
+    const onProfileHover = () => {
+        console.log(123);
+    };
+
     return (
         <Navbar>
             <Brand>Sit!</Brand>
@@ -49,6 +53,7 @@ function Header() {
                             variant="outlined"
                             name="login"
                             onClick={openModal}
+                            onMouseEnter={onProfileHover}
                         >
                             Profile
                         </Button>

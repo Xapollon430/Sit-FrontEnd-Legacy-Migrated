@@ -8,9 +8,9 @@ export const DropdownWrapper = styled.div`
     top: 75px;
     width: 115px;
 
-    border-radius: 5px;
+    border-radius: 0px 0px 5px 5px;
     border: white 2px solid;
-
+    border-top: none;
     cursor: pointer;
     outline: none;
     font-size: 1.1rem;
