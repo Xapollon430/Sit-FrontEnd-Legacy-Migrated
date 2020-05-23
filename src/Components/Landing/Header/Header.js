@@ -8,7 +8,7 @@ import {
     changeIsLogInOpen,
     ModalContext,
 } from "../../../Context/ModalContextProvider";
-import Dropdown from "../../../UI/Dropdown/Dropdown";
+import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
 import { changeLoggedIn } from "../../../Redux/actions";
 
 const Header = React.memo(() => {
@@ -42,56 +42,28 @@ const Header = React.memo(() => {
                 <Button variant="outlined">Be A Sitter</Button>
                 <EmptyDiv />
                 {globalState.loggedIn ? (
-                    <Button variant="outlined" name="login">
-                        {globalState.user.username}
-                    </Button>
+                    <React.Fragment>
+                        <Button variant="outlined">
+                            {globalState.user.username}
+                        </Button>
+                        <Button variant="outlined" onClick={logOut}>
+                            Log Out
+                        </Button>
+                    </React.Fragment>
                 ) : (
                     <React.Fragment>
                         <Button
                             variant="outlined"
-                            name="login"
                             onClick={openModal}
+                            name="login"
                         >
-                            Profile
+                            Log In
                         </Button>
-                        <Dropdown>
-                            {[
-                                [
-                                    <i
-                                        style={{ marginRight: 10 + "px" }}
-                                        className="fas fa-user-circle"
-                                    ></i>,
-                                    "Profile",
-                                ],
-                                [
-                                    <i
-                                        style={{ marginRight: 10 + "px" }}
-                                        className="fas fa-cog"
-                                    ></i>,
-                                    "Settings",
-                                ],
-                                [
-                                    <i
-                                        style={{
-                                            marginRight: 10 + "px",
-                                            paddingLeft: 5 + "px",
-                                        }}
-                                        className="fas fa-question"
-                                    ></i>,
-                                    "Help",
-                                ],
-                            ]}
-                        </Dropdown>
+                        <ProfileDropdown />
+                        <Button variant="outlined" onClick={openModal}>
+                            Sign Up
+                        </Button>
                     </React.Fragment>
-                )}
-                {globalState.loggedIn ? (
-                    <Button variant="outlined" onClick={logOut}>
-                        Log Out
-                    </Button>
-                ) : (
-                    <Button variant="outlined" onClick={openModal}>
-                        Sign Up
-                    </Button>
                 )}
             </Nav>
         </Navbar>
