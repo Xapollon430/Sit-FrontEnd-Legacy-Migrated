@@ -8,7 +8,7 @@ import {
     changeIsLogInOpen,
     ModalContext,
 } from "../../../Context/ModalContextProvider";
-import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
+import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
 import { changeLoggedIn } from "../../../Redux/actions";
 
 const Header = React.memo(() => {
@@ -16,8 +16,6 @@ const Header = React.memo(() => {
     const modalContext = useContext(ModalContext);
     const globalState = useSelector((state) => state);
     const globalDispatch = useDispatch();
-
-    console.log(12);
 
     const openModal = (event) => {
         modalContext.setModalState(changeIsModalOpen(true));
@@ -56,10 +54,12 @@ const Header = React.memo(() => {
                             variant="outlined"
                             onClick={openModal}
                             name="login"
+                            id="yarrak"
                         >
                             Log In
+                            <ProfileDropdown />
                         </Button>
-                        <ProfileDropdown />
+
                         <Button variant="outlined" onClick={openModal}>
                             Sign Up
                         </Button>

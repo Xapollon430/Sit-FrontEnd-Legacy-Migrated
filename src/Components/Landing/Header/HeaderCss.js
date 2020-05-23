@@ -67,7 +67,36 @@ export const Button = styled.button`
     font-size: 1.1rem;
     height: 45px;
     border-radius: 5px;
-    &:hover ${Button} {
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+`;
+
+export const DropdownWrapper = styled.div`
+    position: absolute;
+    display: grid;
+    grid-auto-rows: 50px;
+    right: 144px;
+    top: 72px;
+    width: 115px;
+    border-radius: 5px;
+    border: white 2px solid;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.1rem;
+
+    ${Button}:hover & {
+        display: grid;
+    }
+`;
+
+export const DropdownItem = styled.span`
+    color: white;
+    font-weight: 550;
+    padding-top: 14px;
+
+    /* justify-self: start; */
+    &:hover {
         background-color: rgba(255, 255, 255, 0.2);
     }
 `;
