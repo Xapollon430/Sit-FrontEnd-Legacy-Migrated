@@ -7,15 +7,17 @@ import {
     changeIsSignUpOpen,
     changeIsLogInOpen,
     ModalContext,
-} from "../ModalContextProvider";
+} from "../../../Context/ModalContextProvider";
 import Dropdown from "../../../UI/Dropdown/Dropdown";
 import { changeLoggedIn } from "../../../Redux/actions";
 
-function Header() {
+const Header = React.memo(() => {
     const [showHamburger, isHamburgerOpen] = useResponsive();
     const modalContext = useContext(ModalContext);
     const globalState = useSelector((state) => state);
     const globalDispatch = useDispatch();
+
+    console.log(12);
 
     const openModal = (event) => {
         modalContext.setModalState(changeIsModalOpen(true));
@@ -27,10 +29,6 @@ function Header() {
     const logOut = () => {
         localStorage.removeItem("jwt-token");
         globalDispatch(changeLoggedIn(false));
-    };
-
-    const onProfileHover = () => {
-        console.log(123);
     };
 
     return (
@@ -53,7 +51,6 @@ function Header() {
                             variant="outlined"
                             name="login"
                             onClick={openModal}
-                            onMouseEnter={onProfileHover}
                         >
                             Profile
                         </Button>
@@ -66,8 +63,23 @@ function Header() {
                                     ></i>,
                                     "Profile",
                                 ],
-                                ["Settings"],
-                                ["Help"],
+                                [
+                                    <i
+                                        style={{ marginRight: 10 + "px" }}
+                                        className="fas fa-cog"
+                                    ></i>,
+                                    "Settings",
+                                ],
+                                [
+                                    <i
+                                        style={{
+                                            marginRight: 10 + "px",
+                                            paddingLeft: 5 + "px",
+                                        }}
+                                        className="fas fa-question"
+                                    ></i>,
+                                    "Help",
+                                ],
                             ]}
                         </Dropdown>
                     </React.Fragment>
@@ -84,6 +96,6 @@ function Header() {
             </Nav>
         </Navbar>
     );
-}
+});
 
 export default Header;

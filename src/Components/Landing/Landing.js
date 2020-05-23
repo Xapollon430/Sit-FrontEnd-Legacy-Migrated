@@ -5,8 +5,10 @@ import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import Information from "./Information/Information";
 import AuthModal from "../Auth/AuthModal";
-import { ModalContext } from "./ModalContextProvider";
-import { changeIsModalOpen } from "../Landing/ModalContextProvider";
+import {
+    ModalContext,
+    changeIsModalOpen,
+} from "../../Context/ModalContextProvider";
 
 function Landing() {
     const modalContext = useContext(ModalContext);

@@ -9,7 +9,7 @@ import {
     changeIsSignUpOpen,
     changeIsModalOpen,
     ModalContext,
-} from "../Landing/ModalContextProvider";
+} from "../../Context/ModalContextProvider";
 import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
 import { generalDispatchBundler } from "../../Redux/actions";
 

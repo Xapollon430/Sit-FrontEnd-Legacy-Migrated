@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ModalContext } from "../../Landing/ModalContextProvider";
+import { ModalContext } from "../../../Context/ModalContextProvider";
 import "../AuthModal.css";
 
 const AuthTabs = ({ changeTab, errorMessageFromServer }) => {
