@@ -54,7 +54,6 @@ const Header = React.memo(() => {
                             variant="outlined"
                             onClick={openModal}
                             name="login"
-                            id="yarrak"
                         >
                             Log In
                             <ProfileDropdown />

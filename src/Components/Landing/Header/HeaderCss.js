@@ -74,7 +74,7 @@ export const Button = styled.button`
 
 export const DropdownWrapper = styled.div`
     position: absolute;
-    display: grid;
+    display: none;
     grid-auto-rows: 50px;
     right: 144px;
     top: 72px;
@@ -95,7 +95,6 @@ export const DropdownItem = styled.span`
     font-weight: 550;
     padding-top: 14px;
 
-    /* justify-self: start; */
     &:hover {
         background-color: rgba(255, 255, 255, 0.2);
     }
