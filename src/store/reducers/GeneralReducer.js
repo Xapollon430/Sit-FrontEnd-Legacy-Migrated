@@ -1,11 +1,9 @@
-import { createStore } from "redux";
-
 const initialState = {
+    user: null,
     loggedIn: false,
-    user: false,
 };
 
-const rootReducer = (state = initialState, action) => {
+const GeneralReducer = (state = initialState, action) => {
     switch (action.type) {
         case "USER":
             return {
@@ -30,5 +28,4 @@ const rootReducer = (state = initialState, action) => {
     }
 };
 
-const store = createStore(rootReducer);
-export default store;
+c;
