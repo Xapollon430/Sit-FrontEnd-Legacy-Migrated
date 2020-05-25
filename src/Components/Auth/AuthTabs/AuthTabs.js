@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
-import { ModalContext } from "../../../Context/ModalContextProvider";
+import { useSelector } from "react-redux";
 import "../AuthModal.css";
 
 const AuthTabs = ({ changeTab, errorMessageFromServer }) => {
-    let modal = useContext(ModalContext);
+    let state = useSelector((state) => state);
     return (
         <div className="form-wrap">
             <div className="tabs">
                 <h3 className="signup-tab">
                     <span
-                        className={modal.isSignUpOpen ? "active" : ""}
+                        className={
+                            state.modalState.isSignUpOpen ? "active" : ""
+                        }
                         onClick={changeTab}
                     >
                         Sign Up
@@ -17,7 +19,7 @@ const AuthTabs = ({ changeTab, errorMessageFromServer }) => {
                 </h3>
                 <h3 className="login-tab">
                     <span
-                        className={modal.isLogInOpen ? "active" : ""}
+                        className={state.modalState.isLogInOpen ? "active" : ""}
                         name="login"
                         onClick={changeTab}
                     >
@@ -25,11 +27,11 @@ const AuthTabs = ({ changeTab, errorMessageFromServer }) => {
                     </span>
                 </h3>
             </div>
-            {errorMessageFromServer ? (
+            {errorMessageFromServer && (
                 <div className="error-message padding-left">
                     {errorMessageFromServer}
                 </div>
-            ) : null}
+            )}
         </div>
     );
 };

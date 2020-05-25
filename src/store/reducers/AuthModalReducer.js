@@ -5,6 +5,8 @@ const initialReducerState = {
 };
 
 const AuthModalReducer = (state = initialReducerState, action) => {
+    console.log(action);
+
     switch (action.type) {
         case "IS_MODAL_OPEN":
             return {
@@ -15,7 +17,7 @@ const AuthModalReducer = (state = initialReducerState, action) => {
             return {
                 ...state,
                 isSignUpOpen: false,
-                isLogInOpen: action.payload,
+                isLogInOpen: action.payload.isLogInOpen,
             };
         case "IS_SIGN_UP_OPEN":
             return {
@@ -23,6 +25,8 @@ const AuthModalReducer = (state = initialReducerState, action) => {
                 isLogInOpen: false,
                 isSignUpOpen: action.payload,
             };
+        default:
+            return state;
     }
 };
 

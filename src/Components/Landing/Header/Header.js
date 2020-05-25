@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
 import { useResponsive } from "../../../CustomHooks/Hooks";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,27 +6,25 @@ import {
     changeIsModalOpen,
     changeIsSignUpOpen,
     changeIsLogInOpen,
-    ModalContext,
-} from "../../../Context/ModalContextProvider";
+} from "../../../store/actions/AuthModalActions";
 import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
-import { changeLoggedIn } from "../../../Redux/actions";
+import { changeLoggedIn } from "../../../store/actions/GeneralActions";
 
 const Header = React.memo(() => {
     const [showHamburger, isHamburgerOpen] = useResponsive();
-    const modalContext = useContext(ModalContext);
-    const globalState = useSelector((state) => state);
-    const globalDispatch = useDispatch();
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
 
     const openModal = (event) => {
-        modalContext.setModalState(changeIsModalOpen(true));
+        dispatch(changeIsModalOpen(true));
         event.target.getAttribute("name") === "login"
-            ? modalContext.setModalState(changeIsLogInOpen(true))
-            : modalContext.setModalState(changeIsSignUpOpen(true));
+            ? dispatch(changeIsLogInOpen(true, "12"))
+            : dispatch(changeIsSignUpOpen(true));
     };
 
     const logOut = () => {
         localStorage.removeItem("jwt-token");
-        globalDispatch(changeLoggedIn(false));
+        dispatch(changeLoggedIn(false));
     };
 
     return (
@@ -39,10 +37,10 @@ const Header = React.memo(() => {
                 </Button>
                 <Button variant="outlined">Be A Sitter</Button>
                 <EmptyDiv />
-                {globalState.loggedIn ? (
+                {state.appState.loggedIn ? (
                     <React.Fragment>
                         <Button variant="outlined">
-                            {globalState.user.username}
+                            {state.appState.username}
                         </Button>
                         <Button variant="outlined" onClick={logOut}>
                             Log Out

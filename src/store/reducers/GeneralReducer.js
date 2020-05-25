@@ -22,10 +22,8 @@ const GeneralReducer = (state = initialState, action) => {
                 ...action.payload,
             };
         default:
-            return {
-                ...state,
-            };
+            return state;
     }
 };
 
-c;
+export default GeneralReducer;

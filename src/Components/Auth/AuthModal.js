@@ -3,15 +3,14 @@ import "./AuthModal.css";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthTabs from "./AuthTabs/AuthTabs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
     changeIsLogInOpen,
     changeIsSignUpOpen,
     changeIsModalOpen,
-    ModalContext,
-} from "../../Context/ModalContextProvider";
+} from "../../store/actions/AuthModalActions";
 import { signUpFormChecker, logInFormChecker } from "./AuthHelper";
-import { generalDispatchBundler } from "../../Redux/actions";
+import { generalDispatchBundler } from "../../store/actions/GeneralActions";
 
 const initialUserState = {
     email: "",
@@ -24,8 +23,8 @@ const AuthModal = () => {
     const [formError, setFormError] = useState({});
     const [errorMessageFromServer, setErrorMessageFromServer] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const modalContext = useContext(ModalContext);
-    const globalDispatch = useDispatch();
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
 
     const submitHandler = async (e, type) => {
         e.preventDefault();
@@ -50,13 +49,13 @@ const AuthModal = () => {
             let data = await response.json();
 
             if (data.user && data.token) {
-                globalDispatch(
+                dispatch(
                     generalDispatchBundler({
                         user: data.user,
                         loggedIn: true,
                     })
                 );
-                modalContext.setModalState(changeIsModalOpen(false));
+                dispatch(changeIsModalOpen(false));
                 localStorage.setItem("jwt-token", data.token);
             } else {
                 setErrorMessageFromServer(data.message);
@@ -75,8 +74,8 @@ const AuthModal = () => {
 
     const changeTab = (e) => {
         e.target.getAttribute("name") === "login"
-            ? modalContext.setModalState(changeIsLogInOpen(true))
-            : modalContext.setModalState(changeIsSignUpOpen(true));
+            ? dispatch(changeIsLogInOpen(true))
+            : dispatch(changeIsSignUpOpen(true));
         setFormError({});
         setErrorMessageFromServer(null);
         setUserInfo(initialUserState);
@@ -88,7 +87,7 @@ const AuthModal = () => {
                 changeTab={changeTab}
                 errorMessageFromServer={errorMessageFromServer}
             />
-            {modalContext.isLogInOpen ? (
+            {state.modalState.isLogInOpen ? (
                 <Login
                     onChange={onChange}
                     submitHandler={submitHandler}

@@ -5,10 +5,10 @@ export const changeIsModalOpen = (isModalOpen) => {
     };
 };
 
-export const changeIsLogInOpen = (isLogInOpen) => {
+export const changeIsLogInOpen = (isLogInOpen, sayi) => {
     return {
         type: "IS_LOG_IN_OPEN",
-        payload: isLogInOpen,
+        payload: { isLogInOpen, sayi },
     };
 };
 

@@ -6,10 +6,11 @@ import Modal from "../../UI/Modal/Modal";
 import Information from "./Information/Information";
 import AuthModal from "../Auth/AuthModal";
 import { changeIsModalOpen } from "../../store/actions/AuthModalActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Landing() {
     const dispatch = useDispatch();
+    const state = useSelector((state) => state);
 
     const closeRegisterModal = () => {
         dispatch(changeIsModalOpen(false));
@@ -21,7 +22,7 @@ function Landing() {
                 <Header />
                 <Jumbotron />
                 <Modal
-                    showModal={modalContext.isModalOpen}
+                    showModal={state.modalState.isModalOpen}
                     onCancel={closeRegisterModal}
                 >
                     <AuthModal />
