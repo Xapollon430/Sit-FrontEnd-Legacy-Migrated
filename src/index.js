@@ -2,18 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import store from "./Redux/reducers";
+import StoreProvider from "./store/store";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import ModalContextProvider from "./Context/ModalContextProvider";
 
 ReactDOM.render(
     <Provider store={store}>
-        <ModalContextProvider>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </ModalContextProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>,
     document.getElementById("root")
 );

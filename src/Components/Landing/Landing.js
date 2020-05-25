@@ -5,16 +5,14 @@ import BackgroundImage from "./LandingCss";
 import Modal from "../../UI/Modal/Modal";
 import Information from "./Information/Information";
 import AuthModal from "../Auth/AuthModal";
-import {
-    ModalContext,
-    changeIsModalOpen,
-} from "../../Context/ModalContextProvider";
+import { changeIsModalOpen } from "../../store/actions/AuthModalActions";
+import { useDispatch } from "react-redux";
 
 function Landing() {
-    const modalContext = useContext(ModalContext);
+    const dispatch = useDispatch();
 
     const closeRegisterModal = () => {
-        modalContext.setModalState(changeIsModalOpen(false));
+        dispatch(changeIsModalOpen(false));
     };
 
     return (

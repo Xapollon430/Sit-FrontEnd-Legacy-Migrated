@@ -1,6 +1,5 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Landing from "./Components/Landing/Landing";
-
 import { Route } from "react-router-dom";
 
 const App = () => {
