@@ -18,7 +18,7 @@ const Header = React.memo(() => {
     const openModal = (event) => {
         dispatch(changeIsModalOpen(true));
         event.target.getAttribute("name") === "login"
-            ? dispatch(changeIsLogInOpen(true, "12"))
+            ? dispatch(changeIsLogInOpen(true))
             : dispatch(changeIsSignUpOpen(true));
     };
 
