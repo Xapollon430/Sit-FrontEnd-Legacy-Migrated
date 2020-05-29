@@ -10,6 +10,12 @@ export const Title = styled.h1`
     color: rgb(100, 100, 105);
     font-size: 3rem;
     text-align: center;
+    @media (max-width: 600px) {
+        font-size: 2rem;
+    }
+    @media (min-width: 600px) and (max-width: 750px) {
+        font-size: 2.5rem;
+    }
 `;
 
 export const InformationParagraph = styled.p`

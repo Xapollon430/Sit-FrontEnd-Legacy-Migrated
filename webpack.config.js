@@ -26,10 +26,9 @@ module.exports = {
     },
     mode: "development",
     devServer: {
-        // contentBase: path.join(__dirname, "dist"),
         compress: true,
         open: true,
         port: 3000,
     },
-    plugins: [new HtmlWebpackPlugin({ template: "public/index.html" })],
+    // plugins: [new HtmlWebpackPlugin({ template: "public/index.html" })],
 };
