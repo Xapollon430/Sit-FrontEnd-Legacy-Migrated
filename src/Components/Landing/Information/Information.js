@@ -26,7 +26,7 @@ const Information = React.memo(() => {
                         Create a Sit Account and Get Comfortable
                     </StepTitle>
                     <StepParagraph>
-                        Start on your Sit account whether you are a Sitter or an
+                        Start your Sit account whether you are a Sitter or an
                         Owner. Fill your information for us to find a good match
                         for you.
                     </StepParagraph>
@@ -44,14 +44,19 @@ const Information = React.memo(() => {
                 </Step>
                 <Step>
                     <StepImage src={handshake} />
-                    <StepNumber>STEP 1</StepNumber>
-                    <StepTitle>Meet the Most Qualified Sitters </StepTitle>
+                    <StepNumber>STEP 3</StepNumber>
+                    <StepTitle>
+                        Meet the Most Qualified Sitters In Your Area
+                    </StepTitle>
                     <StepParagraph>
                         After picking out the perfect Sitter you can book and
-                        pay securely on our website. Then it is time to relax.
+                        pay securely on our website. Then it is time for your
+                        fur-family to enjoy his stay.
                     </StepParagraph>
                 </Step>
             </StepWrapper>
+
+            <Title>Who We Are</Title>
 
             <InformationParagraph>
                 Are you looking for a Pet sitter or Pet sitting job? At Sit we
