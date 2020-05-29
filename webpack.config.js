@@ -26,6 +26,7 @@ module.exports = {
     },
     mode: "development",
     devServer: {
+        // contentBase: "./public",
         compress: true,
         open: true,
         port: 3000,
