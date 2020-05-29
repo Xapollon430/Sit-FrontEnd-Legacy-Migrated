@@ -30,5 +30,5 @@ module.exports = {
         open: true,
         port: 3000,
     },
-    // plugins: [new HtmlWebpackPlugin({ template: "public/index.html" })],
+    plugins: [new HtmlWebpackPlugin({ template: "public/index.html" })],
 };
