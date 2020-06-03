@@ -72,8 +72,9 @@ export const StepParagraph = styled.p`
 
 export const CustomerWrap = styled.div`
     width: 80%;
+    margin: 100px auto;
 `;
 
-export const CustomerImage = styled.image`
+export const CustomerImage = styled.img`
     width: 100%;
 `;
