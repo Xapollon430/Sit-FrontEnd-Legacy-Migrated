@@ -9,10 +9,12 @@ import {
     StepImage,
     StepNumber,
     StepParagraph,
+    CustomerWrap,
 } from "./InformationCss";
 import handshake from "../../../images/steps-handshake.png";
 import profile from "../../../images/steps-profile.png";
 import search from "../../../images/steps-search.png";
+import customerImage from "../../../images/petsitter.jpg";
 
 const Information = React.memo(() => {
     return (
@@ -55,6 +57,8 @@ const Information = React.memo(() => {
                     </StepParagraph>
                 </Step>
             </StepWrapper>
+
+            <CustomerWrap></CustomerWrap>
 
             <Title>Who We Are</Title>
 

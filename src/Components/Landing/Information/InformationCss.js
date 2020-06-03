@@ -69,3 +69,11 @@ export const StepParagraph = styled.p`
         width: 300px;
     }
 `;
+
+export const CustomerWrap = styled.div`
+    width: 80%;
+`;
+
+export const CustomerImage = styled.image`
+    width: 100%;
+`;
