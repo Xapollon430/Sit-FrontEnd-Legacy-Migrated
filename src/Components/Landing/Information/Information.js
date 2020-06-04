@@ -12,6 +12,9 @@ import {
     CustomerWrap,
     CustomerImage,
     CustomerQuoteWrap,
+    CustomerQuote,
+    CustomerName,
+    GreenLine,
 } from "./InformationCss";
 import handshake from "../../../images/steps-handshake.png";
 import profile from "../../../images/steps-profile.png";
@@ -54,15 +57,23 @@ const Information = React.memo(() => {
                     </StepTitle>
                     <StepParagraph>
                         After picking out the perfect Sitter you can book and
-                        pay securely on our website. Then it is time for your
-                        fur-family to enjoy his stay.
+                        pay securely on our website. Then it is time for you to
+                        relax.
                     </StepParagraph>
                 </Step>
             </StepWrapper>
 
             <CustomerWrap>
                 <CustomerImage src={customerImage} />
-                <CustomerQuoteWrap></CustomerQuoteWrap>
+                <CustomerQuoteWrap>
+                    <GreenLine />
+                    <CustomerQuote>
+                        My Rover sitter sent me updates throughout the day and
+                        took care of my dog as if she were her own.
+                    </CustomerQuote>
+
+                    <CustomerName> - Corynn F.</CustomerName>
+                </CustomerQuoteWrap>
             </CustomerWrap>
 
             <Title>Who We Are</Title>

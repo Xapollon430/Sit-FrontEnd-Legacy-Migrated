@@ -60,6 +60,7 @@ export const StepTitle = styled.h2`
     @media (max-width: 950px) {
         width: 300px;
     }
+    line-height: 1.5;
 `;
 
 export const StepParagraph = styled.p`
@@ -68,22 +69,43 @@ export const StepParagraph = styled.p`
     @media (max-width: 950px) {
         width: 300px;
     }
+    line-height: 1.5;
 `;
 
 export const CustomerWrap = styled.div`
     width: 80%;
     margin: 100px auto;
+    position: relative;
 `;
 
 export const CustomerImage = styled.img`
     width: 100%;
 `;
 
-export const CustomerQuoteWrap = styled.div``;
+export const CustomerQuoteWrap = styled.div`
+    position: absolute;
+    top: 5px;
+    width: 318px;
+    height: 267px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    line-height: 2;
+`;
 
-export const CustomerQuote = styled;
+export const CustomerQuote = styled.span`
+    color: rgb(27, 31, 35);
+    font-size: 22px;
+    font-weight: 700;
+`;
+
+export const CustomerName = styled(CustomerQuote)`
+    color: rgb(102, 114, 124);
+`;
 
 export const GreenLine = styled.span`
     width: 20px;
+    height: 3px;
+    margin-left: 10px;
     background-color: #28a55f;
 `;
