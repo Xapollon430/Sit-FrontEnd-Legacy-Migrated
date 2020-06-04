@@ -78,3 +78,12 @@ export const CustomerWrap = styled.div`
 export const CustomerImage = styled.img`
     width: 100%;
 `;
+
+export const CustomerQuoteWrap = styled.div``;
+
+export const CustomerQuote = styled;
+
+export const GreenLine = styled.span`
+    width: 20px;
+    background-color: #28a55f;
+`;

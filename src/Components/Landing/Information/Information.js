@@ -11,6 +11,7 @@ import {
     StepParagraph,
     CustomerWrap,
     CustomerImage,
+    CustomerQuoteWrap,
 } from "./InformationCss";
 import handshake from "../../../images/steps-handshake.png";
 import profile from "../../../images/steps-profile.png";
@@ -61,6 +62,7 @@ const Information = React.memo(() => {
 
             <CustomerWrap>
                 <CustomerImage src={customerImage} />
+                <CustomerQuoteWrap></CustomerQuoteWrap>
             </CustomerWrap>
 
             <Title>Who We Are</Title>
