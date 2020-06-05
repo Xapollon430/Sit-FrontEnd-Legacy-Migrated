@@ -84,17 +84,18 @@ export const CustomerImage = styled.img`
 
 export const CustomerQuoteWrap = styled.div`
     position: absolute;
-    top: 5px;
+    top: -50px;
+    left: 50px;
     width: 318px;
     height: 267px;
     padding: 20px;
     background-color: white;
     border: 1px solid #e5e5e5;
     line-height: 2;
+    border-radius: 5px;
 `;
 
 export const CustomerQuote = styled.span`
-    color: rgb(27, 31, 35);
     font-size: 22px;
     font-weight: 700;
 `;
@@ -103,9 +104,9 @@ export const CustomerName = styled(CustomerQuote)`
     color: rgb(102, 114, 124);
 `;
 
-export const GreenLine = styled.span`
-    width: 20px;
-    height: 3px;
-    margin-left: 10px;
+export const GreenLine = styled.div`
+    width: 30px;
+    height: 2px;
     background-color: #28a55f;
+    margin-bottom: 10px;
 `;
