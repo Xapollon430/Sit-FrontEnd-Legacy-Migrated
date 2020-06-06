@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const InformationWrapper = styled.div`
-    width: 80%;
+    /* width: 80%; */
     margin: 80px auto 0px auto;
     background-color: FFFFF;
 `;
