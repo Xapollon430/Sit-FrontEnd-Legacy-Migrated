@@ -15,6 +15,7 @@ import {
     CustomerQuote,
     CustomerName,
     GreenLine,
+    SitterName,
 } from "./InformationCss";
 import handshake from "../../../images/steps-handshake.png";
 import profile from "../../../images/steps-profile.png";
@@ -71,9 +72,11 @@ const Information = React.memo(() => {
                         My Rover sitter sent me updates throughout the day and
                         took care of my dog as if she were her own.
                     </CustomerQuote>
-
                     <CustomerName> - Corynn F.</CustomerName>
                 </CustomerQuoteWrap>
+                <SitterName>
+                    <strong>Audrey F. </strong> in Vienna, VA
+                </SitterName>
             </CustomerWrap>
 
             <Title>Who We Are</Title>
