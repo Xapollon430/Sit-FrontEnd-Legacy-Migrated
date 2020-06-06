@@ -138,7 +138,7 @@ export const SitterName = styled.span`
 export const InformationParagraph = styled.p`
     font-size: 1.4rem;
     color: rgb(100, 100, 105);
-    margin: 10px auto;
+    margin: 5px 0px 50px 0px;
     width: 80%;
     @media (max-width: 700px) {
         font-size: 1.3rem;
