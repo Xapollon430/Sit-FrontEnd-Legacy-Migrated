@@ -73,9 +73,15 @@ export const StepParagraph = styled.p`
 `;
 
 export const CustomerWrap = styled.div`
-    width: 80%;
+    width: 90%;
     margin: 100px auto;
     position: relative;
+    @media (max-width: 760px) {
+        width: 100vw;
+    }
+    @media (min-width: 760px) and (max-width: 1100px) {
+        width: 100%;
+    }
 `;
 
 export const CustomerImage = styled.img`
@@ -87,7 +93,7 @@ export const CustomerQuoteWrap = styled.div`
     top: -50px;
     left: 50px;
     width: 318px;
-    height: 267px;
+    height: 200px;
     padding: 20px;
     background-color: white;
     border: 1px solid #e5e5e5;
