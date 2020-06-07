@@ -45,6 +45,28 @@ const SignUp = ({ onChange, submitHandler, formError, isLoading }) => {
                         placeholder="Password"
                         onChange={onChange}
                     />
+                    <div>
+                        {formError.userType ? (
+                            <span id="radio-error">
+                                Please don't leave this empty!
+                            </span>
+                        ) : null}
+                    </div>
+
+                    <input
+                        type="radio"
+                        name="userType"
+                        value="owner"
+                        onChange={onChange}
+                    />
+                    <span>Sitter</span>
+                    <input
+                        type="radio"
+                        name="userType"
+                        value="owner"
+                        onChange={onChange}
+                    />
+                    <span>Owner</span>
 
                     <input type="submit" className="button" />
                 </form>

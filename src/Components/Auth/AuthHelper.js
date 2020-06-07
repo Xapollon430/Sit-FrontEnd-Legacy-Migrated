@@ -3,11 +3,13 @@ import validator from "validator";
 export const signUpFormChecker = (formData) => {
     let errorExists = null;
     let errorData = {
-        email: null,
-        username: null,
-        password: null,
+        email: "",
+        username: "",
+        password: "",
+        userType: "",
     };
-    for (let data in errorData) {
+
+    for (let data in formData) {
         if (formData[data] == "") {
             errorData[data] = `${
                 data.charAt(0).toUpperCase() + data.slice(1)
@@ -20,6 +22,7 @@ export const signUpFormChecker = (formData) => {
             errorData[data] = `Password should be longer than 6 !`;
             errorExists = true;
         }
+        errorExists = true;
     }
     return { ...errorData, errorExists };
 };
@@ -27,10 +30,10 @@ export const signUpFormChecker = (formData) => {
 export const logInFormChecker = (formData) => {
     let errorExists = null;
     let errorData = {
-        email: null,
-        password: null,
+        email: "",
+        password: "",
     };
-    for (let data in errorData) {
+    for (let data in formData) {
         if (formData[data] == "") {
             errorData[data] = `${
                 data.charAt(0).toUpperCase() + data.slice(1)

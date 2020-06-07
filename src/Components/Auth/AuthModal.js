@@ -16,6 +16,7 @@ const initialUserState = {
     email: "",
     username: "",
     password: "",
+    userType: "",
 };
 
 const AuthModal = () => {
@@ -25,17 +26,14 @@ const AuthModal = () => {
     const [isLoading, setIsLoading] = useState(false);
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
-
     const submitHandler = async (e, type) => {
         e.preventDefault();
-
         let errors =
             type === "login"
                 ? logInFormChecker(userInfo)
                 : signUpFormChecker(userInfo);
 
         setFormError(errors);
-
         if (!errors.errorExists) {
             setIsLoading(true);
 
