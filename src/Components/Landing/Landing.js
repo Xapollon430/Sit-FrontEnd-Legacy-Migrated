@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header/Header";
 import Jumbotron from "./Jumbotron/Jumbotron";
 import BackgroundImage from "./LandingCss";
@@ -15,6 +15,14 @@ function Landing() {
     const closeRegisterModal = () => {
         dispatch(changeIsModalOpen(false));
     };
+
+    const [objStringified, setObj] = useState({ a: 1 });
+    useEffect(() => {
+        console.log(123);
+    }, [objStringified]);
+
+    console.log(objStringified);
+
     return (
         <React.Fragment>
             <BackgroundImage>
@@ -28,6 +36,13 @@ function Landing() {
                 </Modal>
             </BackgroundImage>
             <Information />
+            <button
+                onClick={() => {
+                    setObj({ a: Math.random() });
+                }}
+            >
+                12311231
+            </button>
         </React.Fragment>
     );
 }
