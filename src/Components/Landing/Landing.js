@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import Header from "./Header/Header";
 import Jumbotron from "./Jumbotron/Jumbotron";
 import BackgroundImage from "./LandingCss";
@@ -15,7 +15,6 @@ function Landing() {
     const closeRegisterModal = () => {
         dispatch(changeIsModalOpen(false));
     };
-
     return (
         <React.Fragment>
             <BackgroundImage>
