@@ -35,7 +35,7 @@ const Header = React.memo(() => {
                 <Button size="small" variant="outlined">
                     Find A Sitter
                 </Button>
-                <Button variant="outlined">Be A Sitter</Button>
+                <Button variant="outlined">Blog</Button>
                 <EmptyDiv />
                 {state.appState.loggedIn ? (
                     <React.Fragment>
