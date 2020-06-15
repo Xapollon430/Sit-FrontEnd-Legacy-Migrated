@@ -26,6 +26,7 @@ module.exports = {
     },
     mode: "development",
     devServer: {
+        historyApiFallback: true,
         compress: true,
         open: true,
         port: 3000,

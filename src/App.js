@@ -1,14 +1,16 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import Landing from "./Components/Landing/Landing";
 import FindSitter from "./Components/FindSitter/FindSitter";
 import { Route, Switch } from "react-router-dom";
 
 const App = () => {
     return (
-        <Switch>
-            <Route path="/" exact render={() => <FindSitter />} />
-            <Route path="/1" exact render={() => <Landing />} />
-        </Switch>
+        <Fragment>
+            <Switch>
+                <Route exact path="/" render={() => <Landing />} />
+                <Route exact path="/search" render={() => <FindSitter />} />
+            </Switch>
+        </Fragment>
     );
 };
 

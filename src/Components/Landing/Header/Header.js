@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
 import { useResponsive } from "../../../CustomHooks/Hooks";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,7 +11,7 @@ import {
 import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
 import { changeLoggedIn } from "../../../store/actions/GeneralActions";
 
-const Header = React.memo(() => {
+const Header = () => {
     const [showHamburger, isHamburgerOpen] = useResponsive();
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
@@ -32,9 +33,12 @@ const Header = React.memo(() => {
             <Brand>Sit!</Brand>
             <Menu onClick={showHamburger} className="fas fa-bars fa-3x"></Menu>
             <Nav close={isHamburgerOpen}>
-                <Button size="small" variant="outlined">
-                    Find A Sitter
-                </Button>
+                <Link to="/search">
+                    <Button size="small" variant="outlined">
+                        Find A Sitter
+                    </Button>
+                </Link>
+
                 <Button variant="outlined">Blog</Button>
                 <EmptyDiv />
                 {state.appState.loggedIn ? (
@@ -65,6 +69,6 @@ const Header = React.memo(() => {
             </Nav>
         </Navbar>
     );
-});
+};
 
 export default Header;
