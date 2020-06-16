@@ -11,7 +11,11 @@ export const InformationWrapper = styled.div`
 export const Title = styled.h1`
     color: rgb(100, 100, 105);
     font-size: 3rem;
-    @media (max-width: 600px) {
+
+    @media (max-width: 420px) {
+        font-size: 1.7rem;
+    }
+    @media (min-width: 420px) and (max-width: 600px) {
         font-size: 2rem;
     }
     @media (min-width: 600px) and (max-width: 750px) {
