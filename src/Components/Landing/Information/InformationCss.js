@@ -36,9 +36,10 @@ export const StepWrapper = styled.div`
 
 export const Step = styled.div`
     display: grid;
-    @media (max-width: 950px) {
+    /* @media (max-width: 950px) {
         justify-items: center;
-    }
+        justify-content: center;
+    } */
 `;
 
 export const StepNumber = styled.h3`
@@ -46,15 +47,17 @@ export const StepNumber = styled.h3`
 `;
 
 export const StepImage = styled.img`
-    justify-self: center;
+    @media (min-width: 950px) and (max-width: 1200px) {
+        width: 200px;
+    }
+    @media (max-width: 500px) {
+        width: 200px;
+    }
 `;
 
 export const StepTitle = styled.h2`
     margin: 0px;
     color: rgb(100, 100, 105);
-    @media (max-width: 950px) {
-        width: 300px;
-    }
     line-height: 1.5;
 `;
 
