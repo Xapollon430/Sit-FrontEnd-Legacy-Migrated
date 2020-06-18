@@ -7,6 +7,7 @@ import {
     Footer,
     Link,
 } from "./JumbotronCss";
+import { Link as RouterLink } from "react-router-dom";
 
 const Jumbotron = React.memo(() => {
     return (
@@ -18,9 +19,12 @@ const Jumbotron = React.memo(() => {
                 At Sit.com we provide the most quality <br />
                 caretakers to your beloved pets.
             </Paragraph>
-            <Button>Find a Sitter!</Button>
+            <RouterLink to="/search">
+                <Button>Find a Sitter!</Button>
+            </RouterLink>
+
             <Footer>
-                Are you looking for a pet sitting job?{" "}
+                Are you looking for a pet sitting job?
                 <Link href="gugle">Apply Now.</Link>
             </Footer>
         </Section>

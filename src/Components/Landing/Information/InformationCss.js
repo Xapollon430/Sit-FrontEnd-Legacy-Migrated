@@ -36,10 +36,7 @@ export const StepWrapper = styled.div`
 
 export const Step = styled.div`
     display: grid;
-    /* @media (max-width: 950px) {
-        justify-items: center;
-        justify-content: center;
-    } */
+    justify-items: center;
 `;
 
 export const StepNumber = styled.h3`
@@ -59,6 +56,7 @@ export const StepTitle = styled.h2`
     margin: 0px;
     color: rgb(100, 100, 105);
     line-height: 1.5;
+    text-align: center;
 `;
 
 export const StepParagraph = styled.p`
@@ -85,7 +83,6 @@ export const CustomerImage = styled.img`
 
 export const CustomerQuoteWrap = styled.div`
     box-sizing: border-box;
-
     position: absolute;
     top: -50px;
     left: 50px;
@@ -106,17 +103,22 @@ export const CustomerQuoteWrap = styled.div`
         height: 120px;
         top: -100px;
     }
+    @media (min-width: 400px) and (max-width: 512px) {
+        height: 150px;
+    }
     @media (max-width: 512px) {
         top: -120px;
-        height: 150px;
     }
 `;
 
 export const CustomerQuote = styled.span`
     font-size: 22px;
     font-weight: 700;
-    @media (max-width: 616px) {
+    @media (min-width: 400px) and (max-width: 616px) {
         font-size: 18px;
+    }
+    @media (max-width: 400px) {
+        font-size: 16px;
     }
 `;
 

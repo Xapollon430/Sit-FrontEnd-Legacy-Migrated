@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
 import { useResponsive } from "../../../CustomHooks/Hooks";
 import { useSelector, useDispatch } from "react-redux";
@@ -33,37 +33,29 @@ const Header = () => {
             <Brand>Sit!</Brand>
             <Menu onClick={showHamburger} className="fas fa-bars fa-3x"></Menu>
             <Nav close={isHamburgerOpen}>
-                <Link to="/search">
-                    <Button size="small" variant="outlined">
+                <RouterLink to="/search">
+                    <Button size="small" style={{ width: "100%" }}>
                         Find A Sitter
                     </Button>
-                </Link>
+                </RouterLink>
 
                 <Button variant="outlined">Blog</Button>
                 <EmptyDiv />
                 {state.appState.loggedIn ? (
                     <React.Fragment>
-                        <Button variant="outlined">
-                            {state.appState.username}
-                        </Button>
+                        <Button>{state.appState.username}</Button>
                         <Button variant="outlined" onClick={logOut}>
                             Log Out
                         </Button>
                     </React.Fragment>
                 ) : (
                     <React.Fragment>
-                        <Button
-                            variant="outlined"
-                            onClick={openModal}
-                            name="login"
-                        >
+                        <Button onClick={openModal} name="login">
                             Log In
                             <ProfileDropdown />
                         </Button>
 
-                        <Button variant="outlined" onClick={openModal}>
-                            Sign Up
-                        </Button>
+                        <Button onClick={openModal}>Sign Up</Button>
                     </React.Fragment>
                 )}
             </Nav>

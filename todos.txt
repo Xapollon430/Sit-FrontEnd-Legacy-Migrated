@@ -1,9 +1,0 @@
-Todos
-
-
-
-Completed
-
-
-1- make modals usereducer 
-2- fix bugs/id
