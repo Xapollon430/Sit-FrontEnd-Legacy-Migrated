@@ -22,7 +22,6 @@ export const signUpFormChecker = (formData) => {
             errorData[data] = `Password should be longer than 6 !`;
             errorExists = true;
         }
-        errorExists = true;
     }
     return { ...errorData, errorExists };
 };

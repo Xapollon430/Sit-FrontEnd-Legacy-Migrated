@@ -56,7 +56,7 @@ const SignUp = ({ onChange, submitHandler, formError, isLoading }) => {
                     <input
                         type="radio"
                         name="userType"
-                        value="owner"
+                        value="sitter"
                         onChange={onChange}
                     />
                     <span>Sitter</span>

@@ -26,7 +26,9 @@ const AuthModal = () => {
     const [isLoading, setIsLoading] = useState(false);
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
+
     const submitHandler = async (e, type) => {
+        console.log(123);
         e.preventDefault();
         let errors =
             type === "login"
@@ -34,9 +36,9 @@ const AuthModal = () => {
                 : signUpFormChecker(userInfo);
 
         setFormError(errors);
+        console.log(errors);
         if (!errors.errorExists) {
             setIsLoading(true);
-
             let response = await fetch(`http://localhost:5000/${type}`, {
                 method: "POST",
                 headers: {
