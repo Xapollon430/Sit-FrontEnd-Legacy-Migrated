@@ -73,12 +73,13 @@ export const CustomerWrap = styled.div`
     margin: 100px auto;
     position: relative;
     @media (max-width: 1100px) {
-        width: 100%;
+        width: 100vw;
     }
 `;
 
 export const CustomerImage = styled.img`
     width: 100%;
+    min-width: 334px;
 `;
 
 export const CustomerQuoteWrap = styled.div`
@@ -86,7 +87,7 @@ export const CustomerQuoteWrap = styled.div`
     position: absolute;
     top: -50px;
     left: 50px;
-    width: 350px;
+    width: 370px;
     height: 220px;
     padding: 20px;
     background-color: white;
@@ -99,11 +100,11 @@ export const CustomerQuoteWrap = styled.div`
         left: 0px;
         top: -100px;
     }
-    @media (min-width: 512px) and (max-width: 616px) {
+    @media (min-width: 500px) and (max-width: 616px) {
         height: 120px;
         top: -100px;
     }
-    @media (min-width: 400px) and (max-width: 512px) {
+    @media (min-width: 400px) and (max-width: 500px) {
         height: 150px;
     }
     @media (max-width: 512px) {

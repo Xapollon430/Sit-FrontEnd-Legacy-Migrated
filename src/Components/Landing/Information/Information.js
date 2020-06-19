@@ -69,10 +69,10 @@ const Information = React.memo(() => {
                 <CustomerQuoteWrap>
                     <GreenLine />
                     <CustomerQuote>
-                        My Rover sitter sent me updates throughout the day and
-                        took care of my dog as if she were her own.
+                        My sitter sent me pictures everytime she took Buddy for
+                        walks. It was so thoughtful and reassuring!
                     </CustomerQuote>
-                    <CustomerName> - Corynn F.</CustomerName>
+                    <CustomerName> - Abby H.</CustomerName>
                 </CustomerQuoteWrap>
                 <SitterName>
                     <strong>Audrey F. </strong> in Vienna, VA
