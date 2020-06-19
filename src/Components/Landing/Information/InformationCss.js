@@ -70,6 +70,8 @@ export const StepParagraph = styled.p`
 
 export const CustomerWrap = styled.div`
     width: 70%;
+    min-width: 334px;
+
     margin: 100px auto;
     position: relative;
     @media (max-width: 1100px) {
