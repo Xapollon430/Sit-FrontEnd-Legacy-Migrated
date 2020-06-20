@@ -95,3 +95,11 @@ export const DropdownItem = styled.span`
         background-color: rgba(255, 255, 255, 0.2);
     }
 `;
+
+export const ExpandDown = styled.i`
+    padding-left: 8px;
+`;
+
+export const ExpandUp = styled.i`
+    padding-left: 8px;
+`;

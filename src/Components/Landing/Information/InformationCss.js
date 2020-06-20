@@ -156,3 +156,36 @@ export const InformationParagraph = styled.p`
         font-size: 1.3rem;
     }
 `;
+
+export const Footer = styled.footer`
+    height: 250px;
+    width: 100vw;
+    background: rgb(53, 58, 64);
+`;
+
+export const Brand = styled.h1`
+    font-size: 3rem;
+    color: white;
+    margin: 0px;
+    font-family: "Quicksand", sans-serif;
+`;
+
+export const SocialMediaWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    width: 60%;
+    margin: 40px auto 0px auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+`;
+
+export const SocialMediaImage = styled.img`
+    cursor: pointer;
+`;
+
+export const FooterDivider = styled.div`
+    width: 60%;
+    border-bottom: 1px solid white;
+    margin: 20px auto;
+`;

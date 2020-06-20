@@ -1,9 +1,9 @@
 import React from "react";
 import { DropdownWrapper, DropdownItem } from "../HeaderCss";
 
-const ProfileDropdown = React.memo(() => {
+const ProfileDropdown = ({ open }) => {
     return (
-        <DropdownWrapper>
+        <DropdownWrapper open={open}>
             <DropdownItem>
                 <i className="fas fa-user-circle"></i> Profile
             </DropdownItem>
@@ -15,6 +15,6 @@ const ProfileDropdown = React.memo(() => {
             </DropdownItem>
         </DropdownWrapper>
     );
-});
+};
 
 export default ProfileDropdown;

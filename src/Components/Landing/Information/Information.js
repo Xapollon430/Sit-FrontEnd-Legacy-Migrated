@@ -16,6 +16,10 @@ import {
     CustomerName,
     GreenLine,
     SitterName,
+    Footer,
+    SocialMediaImage,
+    SocialMediaWrapper,
+    FooterDivider,
 } from "./InformationCss";
 import handshake from "../../../images/steps-handshake.png";
 import profile from "../../../images/steps-profile.png";
@@ -88,6 +92,16 @@ const Information = React.memo(() => {
                 their services. We can find care for your pets when you can't
                 take care of them.
             </InformationParagraph>
+            <Footer>
+                <SocialMediaWrapper>
+                    <img src="https://img.icons8.com/ios/30/ffffff/facebook-new.png" />{" "}
+                    <img src="https://img.icons8.com/ios/30/ffffff/instagram-new.png" />{" "}
+                    <img src="https://img.icons8.com/ios/30/ffffff/youtube-play.png" />{" "}
+                    <img src="https://img.icons8.com/ios/30/ffffff/pinterest.png" />{" "}
+                    <img src="https://img.icons8.com/ios/30/ffffff/linkedin.png" />{" "}
+                    &copy; 2020 Sit. All rights reserved.
+                </SocialMediaWrapper>
+            </Footer>
         </InformationWrapper>
     );
 });

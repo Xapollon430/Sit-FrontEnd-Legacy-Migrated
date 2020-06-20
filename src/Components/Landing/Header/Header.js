@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
+import {
+    Navbar,
+    Brand,
+    Menu,
+    Nav,
+    EmptyDiv,
+    Button,
+    ExpandDown,
+    ExpandUp,
+} from "./HeaderCss";
 import { useResponsive } from "../../../CustomHooks/Hooks";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -22,10 +31,6 @@ const Header = () => {
         event.target.getAttribute("name") === "login"
             ? dispatch(changeIsLogInOpen(true))
             : dispatch(changeIsSignUpOpen(true));
-    };
-
-    const openDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
     };
 
     const logOut = () => {
@@ -55,11 +60,18 @@ const Header = () => {
                     </React.Fragment>
                 ) : (
                     <React.Fragment>
-                        <Button onClick={openDropdown} name="login">
+                        <Button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            name="login"
+                        >
                             Log In
+                            {isDropdownOpen ? (
+                                <ExpandUp className="fas fa-chevron-up" />
+                            ) : (
+                                <ExpandDown className="fas fa-chevron-down" />
+                            )}
                             <ProfileDropdown open={isDropdownOpen} />
                         </Button>
-
                         <Button onClick={openModal}>Sign Up</Button>
                     </React.Fragment>
                 )}
