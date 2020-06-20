@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Navbar, Brand, Menu, Nav, EmptyDiv, Button } from "./HeaderCss";
 import { useResponsive } from "../../../CustomHooks/Hooks";
@@ -13,6 +13,7 @@ import { changeLoggedIn } from "../../../store/actions/GeneralActions";
 
 const Header = () => {
     const [showHamburger, isHamburgerOpen] = useResponsive();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
 
@@ -21,6 +22,10 @@ const Header = () => {
         event.target.getAttribute("name") === "login"
             ? dispatch(changeIsLogInOpen(true))
             : dispatch(changeIsSignUpOpen(true));
+    };
+
+    const openDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
     };
 
     const logOut = () => {
@@ -50,9 +55,9 @@ const Header = () => {
                     </React.Fragment>
                 ) : (
                     <React.Fragment>
-                        <Button onClick={openModal} name="login">
+                        <Button onClick={openDropdown} name="login">
                             Log In
-                            <ProfileDropdown />
+                            <ProfileDropdown open={isDropdownOpen} />
                         </Button>
 
                         <Button onClick={openModal}>Sign Up</Button>

@@ -74,7 +74,7 @@ export const Button = styled.button`
 
 export const DropdownWrapper = styled.div`
     position: absolute;
-    display: none;
+    display: ${(props) => (props.open ? "grid" : "none")};
     grid-auto-rows: 50px;
     right: 144px;
     top: 72px;
@@ -84,10 +84,6 @@ export const DropdownWrapper = styled.div`
     cursor: pointer;
     outline: none;
     font-size: 1.1rem;
-
-    ${Button}:hover & {
-        display: grid;
-    }
 `;
 
 export const DropdownItem = styled.span`
