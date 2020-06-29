@@ -4,7 +4,6 @@ import FindSitter from "./Components/FindSitter/FindSitter";
 import { Route, Switch } from "react-router-dom";
 
 const App = () => {
-    console.log(123);
     return (
         <Fragment>
             <Switch>
