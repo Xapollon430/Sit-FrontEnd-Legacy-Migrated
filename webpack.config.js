@@ -5,6 +5,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
+        publicPath: "/secret/admiring-leavitt/dist/",
     },
     mode: "development",
     module: {
